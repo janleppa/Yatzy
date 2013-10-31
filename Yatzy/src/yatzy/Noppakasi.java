@@ -41,7 +41,7 @@ public class Noppakasi {
     }
     
     public void valitseNoppa(int n) {
-        this.nopat.get(n+1).valitse();
+        this.nopat.get(n-1).valitse();
     }
     
     public void jarjestaKasi() {
