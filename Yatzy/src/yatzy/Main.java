@@ -4,11 +4,24 @@ package yatzy;
 public class Main {
 
     public static void main(String[] args) {
-        Noppa n = new Noppa();
+        Noppakasi n = new Noppakasi(); 
         System.out.println(n);
-        n.heitaNoppa();
+        n.jarjestaKasi();
         System.out.println(n);
-        n.heitaNoppa();
+        n.heitaValitsemattomat();
+        System.out.println(n);
+        n.jarjestaKasi();
+        System.out.println(n);
+        n.heitaValitsemattomat();
+        System.out.println(n);
+        n.jarjestaKasi();
+        System.out.println(n);
+        n.heitaValitsemattomat();
+        System.out.println(n);
+        n.jarjestaKasi();
+        System.out.println(n);
+        n.heitaValitsemattomat();
+        
         
        
     }
