@@ -23,6 +23,14 @@ public class Noppa {
         return this.silmaluku;
     }
     
+    public void setSilmaluku(int n) {
+        if(!(1<= n && n<=6)) {
+            
+        } else {
+            this.silmaluku=n;
+        }
+    }
+    
     public void heitaNoppa() {
         int heitto = this.random.nextInt(6) + 1;
         this.silmaluku = heitto;
