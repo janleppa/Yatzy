@@ -2,6 +2,7 @@
 package yatzy;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Noppakasi {
     private ArrayList<Noppa> nopat;
@@ -37,6 +38,14 @@ public class Noppakasi {
         }
         
         return tulos;
+    }
+    
+    public void valitseNoppa(int n) {
+        this.nopat.get(n-1).valitse();
+    }
+    
+    public void jarjestaKasi() {
+        Collections.sort(this.nopat);
     }
     
 }

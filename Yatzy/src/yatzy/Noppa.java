@@ -3,7 +3,7 @@ package yatzy;
 
 import java.util.Random;
 
-public class Noppa {
+public class Noppa implements Comparable<Noppa> {
     private Random random;
     private int silmaluku;
     private boolean valittu;
@@ -47,5 +47,14 @@ public class Noppa {
     public void poistaValinta() {
         this.valittu = false;
     }
+
+    
+
+    @Override
+    public int compareTo(Noppa o) {
+        return this.silmaluku-o.silmaluku;
+    }
+    
+    
     
 }
