@@ -22,7 +22,7 @@ public class Noppakasi {
         }
     }
     
-    public void alustaKasi() {
+    private void alustaKasi() {
         int iii=1;
         while(iii<=5) {
             this.nopat.add(new Noppa());
@@ -32,7 +32,7 @@ public class Noppakasi {
     }
     
     public String toString() {
-        this.jarjestaKasi();
+        
         String tulos = "";
         for(Noppa noppa : this.nopat) {
             tulos = tulos + noppa.toString() + " "; 
@@ -43,6 +43,11 @@ public class Noppakasi {
     
     public void valitseNoppa(int n) {
         this.nopat.get(n-1).valitse();
+        
+    }
+    
+    public void poistaValintaNopalta(int n) {
+        this.nopat.get(n-1).poistaValinta();
     }
     
     public void jarjestaKasi() {

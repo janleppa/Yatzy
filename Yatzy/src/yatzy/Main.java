@@ -10,7 +10,8 @@ public class Main {
         
         
         Noppakasi isosuora = new Noppakasi();
-        ArrayList<Noppa> suora = new ArrayList<Noppa>();
+        System.out.println(isosuora);
+        ArrayList<Noppa> suora = new ArrayList<>();
         suora.add(new Noppa(2));
         suora.add(new Noppa(3));
         suora.add(new Noppa(4));
