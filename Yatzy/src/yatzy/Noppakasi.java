@@ -10,7 +10,7 @@ public class Noppakasi {
     public Noppakasi() {
         this.nopat = new ArrayList<Noppa>();
         this.alustaKasi();
-        this.heitaValitsemattomat();
+        
         
         
     }
@@ -32,6 +32,7 @@ public class Noppakasi {
     }
     
     public String toString() {
+        this.jarjestaKasi();
         String tulos = "";
         for(Noppa noppa : this.nopat) {
             tulos = tulos + noppa.toString() + " "; 
@@ -46,6 +47,31 @@ public class Noppakasi {
     
     public void jarjestaKasi() {
         Collections.sort(this.nopat);
+    }
+    
+    public ArrayList<Noppa> getNoppaLista() {
+        return this.nopat;
+    }
+    
+    public Noppakasi KopioiKasi() {
+        Noppakasi k = new Noppakasi();
+        ArrayList<Noppa> kopioNopat = new ArrayList<Noppa>();
+        
+        for(Noppa noppa : this.nopat) {
+        Noppa kopioNoppa = new Noppa(noppa.getSilmaluku());    
+        kopioNopat.add(kopioNoppa);    
+        }
+        
+        
+        return k;
+    }
+    
+    public void setNopat(ArrayList<Noppa> nopat) {
+        this.nopat = nopat;
+    }
+    
+    public int annaNopanNSilmaluku(int n) {
+        return this.nopat.get(n-1).getSilmaluku();
     }
     
 }
