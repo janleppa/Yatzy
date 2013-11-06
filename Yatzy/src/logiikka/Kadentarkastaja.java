@@ -32,10 +32,17 @@ public class Kadentarkastaja {
     }
 
     public boolean onkoKadessaPari() {
-        if(this.onkoKadessaIsoSuora() || this.onkoKadessaPieniSuora()) {
-            return false;
+        int iii=1;
+        
+        while(iii<=4) {
+            if((this.kasi.annaNopanNSilmaluku(iii+1)-this.kasi.annaNopanNSilmaluku(iii))== 0) {
+                return true;
+            }
+            iii++;
+                
         }
-        return true;
+        
+        return false;
     }
 
     public boolean onkoKadessaIsoSuora() {
