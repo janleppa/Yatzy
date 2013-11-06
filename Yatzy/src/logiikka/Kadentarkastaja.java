@@ -32,22 +32,22 @@ public class Kadentarkastaja {
     }
 
     public boolean onkoKadessaPari() {
-        int iii=1;
-        
-        while(iii<=4) {
-            if((this.kasi.annaNopanNSilmaluku(iii+1)-this.kasi.annaNopanNSilmaluku(iii))== 0) {
+        int iii = 1;
+
+        while (iii <= 4) {
+            if ((this.kasi.annaNopanNSilmaluku(iii + 1) - this.kasi.annaNopanNSilmaluku(iii)) == 0) {
                 return true;
             }
             iii++;
-                
+
         }
-        
+
         return false;
     }
 
     public boolean onkoKadessaIsoSuora() {
         int n = 1;
-        if(this.kasi.annaNopanNSilmaluku(1) != 2) {
+        if (this.kasi.annaNopanNSilmaluku(1) != 2) {
             return false;
         }
         while (n <= 4) {
@@ -59,10 +59,10 @@ public class Kadentarkastaja {
         }
         return true;
     }
-    
+
     public boolean onkoKadessaPieniSuora() {
         int n = 1;
-        if(this.kasi.annaNopanNSilmaluku(1) != 1) {
+        if (this.kasi.annaNopanNSilmaluku(1) != 1) {
             return false;
         }
         while (n <= 4) {
@@ -73,5 +73,34 @@ public class Kadentarkastaja {
 
         }
         return true;
+    }
+
+    public boolean onkoKadessaKolmoset() {
+        int iii = 1;
+
+        while (iii <= 3) {
+            if(this.kasi.annaNopanNSilmaluku(iii) ==this.kasi.annaNopanNSilmaluku(iii+2)) {
+                return true;
+            }
+            iii++;
+        }
+        
+        return false;
+    }
+    
+    public boolean onkoKadessaNeloset() {
+        if(this.kasi.annaNopanNSilmaluku(1)==this.kasi.annaNopanNSilmaluku(4) || this.kasi.annaNopanNSilmaluku(2)==this.kasi.annaNopanNSilmaluku(5) ) {
+            return true;
+        }
+        
+        return false;
+    }
+    
+    public boolean onkoKadessaYatzy() {
+        if(this.kasi.annaNopanNSilmaluku(1)==this.kasi.annaNopanNSilmaluku(5)) {
+            return true;
+        }
+        
+        return false;
     }
 }

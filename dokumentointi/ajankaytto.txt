@@ -1,2 +1,5 @@
 30.10.		2h		GitHubin käyttöön totuttelu
 31.10.		1h		Aihe päätetty ja aihemäärittelyn raaka versio tehty
+1.11.		2h		Ekoja luokkia
+5.11.		2h		Luokkia päivitelty ja testiluokkia luotu
+6.11.		4h		Testiluokkia ja erityisesti kädentarkastaja luokkaan tehty lisää metodeja		
