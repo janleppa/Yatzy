@@ -79,28 +79,57 @@ public class Kadentarkastaja {
         int iii = 1;
 
         while (iii <= 3) {
-            if(this.kasi.annaNopanNSilmaluku(iii) ==this.kasi.annaNopanNSilmaluku(iii+2)) {
+            if (this.kasi.annaNopanNSilmaluku(iii) == this.kasi.annaNopanNSilmaluku(iii + 2)) {
                 return true;
             }
             iii++;
         }
-        
+
         return false;
     }
-    
+
     public boolean onkoKadessaNeloset() {
-        if(this.kasi.annaNopanNSilmaluku(1)==this.kasi.annaNopanNSilmaluku(4) || this.kasi.annaNopanNSilmaluku(2)==this.kasi.annaNopanNSilmaluku(5) ) {
+        if (this.kasi.annaNopanNSilmaluku(1) == this.kasi.annaNopanNSilmaluku(4) || this.kasi.annaNopanNSilmaluku(2) == this.kasi.annaNopanNSilmaluku(5)) {
             return true;
         }
-        
+
+        return false;
+    }
+
+    public boolean onkoKadessaYatzy() {
+        if (this.kasi.annaNopanNSilmaluku(1) == this.kasi.annaNopanNSilmaluku(5)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean onkoKadessaKaksiParia() {
+        if(this.onkoKadessaNeloset()) {
+            return false;
+        }
+        else if (this.kasi.annaNopanNSilmaluku(1) == this.kasi.annaNopanNSilmaluku(2) && this.kasi.annaNopanNSilmaluku(3) == this.kasi.annaNopanNSilmaluku(4)) {
+            return true;
+            
+        } else if (this.kasi.annaNopanNSilmaluku(2) == this.kasi.annaNopanNSilmaluku(3) && this.kasi.annaNopanNSilmaluku(4) == this.kasi.annaNopanNSilmaluku(5)) {
+            return true;
+            
+        } else if (this.kasi.annaNopanNSilmaluku(1) == this.kasi.annaNopanNSilmaluku(2) && this.kasi.annaNopanNSilmaluku(4) == this.kasi.annaNopanNSilmaluku(5)) {
+            return true;
+            
+        }
         return false;
     }
     
-    public boolean onkoKadessaYatzy() {
-        if(this.kasi.annaNopanNSilmaluku(1)==this.kasi.annaNopanNSilmaluku(5)) {
+    public boolean onkoKadessaTayskasi() {
+        if(this.onkoKadessaYatzy()) {
+            return false;    
+        } else if(this.onkoKadessaNeloset()) {
+            return false;
+        }
+        if(this.onkoKadessaKaksiParia() && this.onkoKadessaKolmoset()) {
             return true;
         }
-        
         return false;
     }
 }

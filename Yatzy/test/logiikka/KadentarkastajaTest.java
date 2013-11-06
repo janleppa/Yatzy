@@ -125,4 +125,44 @@ public class KadentarkastajaTest {
         this.tar.setKasi(ei1);
         assertTrue(!this.tar.onkoKadessaYatzy());
     }
+    
+    @Test
+    public void testaaOnkoKadessaTayskasi() {
+        Noppakasi on1 = new Noppakasi(1, 1, 1, 2, 2);
+        Noppakasi on2 = new Noppakasi(1, 6, 1, 6, 1); 
+        Noppakasi ei1 = new Noppakasi(1, 2, 1, 2, 6);
+        Noppakasi ei2 = new Noppakasi(1, 1, 1, 1, 1);
+        
+        this.tar.setKasi(on1);
+        assertTrue(this.tar.onkoKadessaTayskasi());
+        
+        this.tar.setKasi(on2);
+        assertTrue(this.tar.onkoKadessaTayskasi());
+
+        this.tar.setKasi(ei1);
+        assertTrue(!this.tar.onkoKadessaTayskasi());
+        
+        this.tar.setKasi(ei2);
+        assertTrue(!this.tar.onkoKadessaTayskasi());
+    }
+    
+    @Test
+    public void testaaOnkoKadessaKaksiPari() {
+        Noppakasi on1 = new Noppakasi(1, 1, 4, 4, 6);
+        Noppakasi on2 = new Noppakasi(1, 6, 1, 6, 5); 
+        Noppakasi ei1 = new Noppakasi(1, 2, 1, 3, 6);
+        Noppakasi ei2 = new Noppakasi(6, 6, 4, 1, 6);
+        
+        this.tar.setKasi(on1);
+        assertTrue(this.tar.onkoKadessaKaksiParia());
+        
+        this.tar.setKasi(on2);
+        assertTrue(this.tar.onkoKadessaKaksiParia());
+
+        this.tar.setKasi(ei1);
+        assertTrue(!this.tar.onkoKadessaKaksiParia());
+        
+        this.tar.setKasi(ei2);
+        assertTrue(!this.tar.onkoKadessaKaksiParia());
+    }
 }

@@ -6,10 +6,10 @@ import logiikka.Kadentarkastaja;
 public class Main {
 
     public static void main(String[] args) {
-        Noppakasi yatzy = new Noppakasi(1,4,1,4,1);
-        System.out.println(yatzy);
-        Kadentarkastaja tar = new Kadentarkastaja(yatzy);
-        System.out.println(tar.onkoKadessaIsoSuora());
-        System.out.println(tar.onkoKadessaKolmoset());
+        Noppakasi on1 = new Noppakasi(1, 1, 4, 4, 6);
+        Kadentarkastaja tar = new Kadentarkastaja(on1);
+        System.out.println(tar.onkoKadessaNeloset());
+        System.out.println(on1);
+        System.out.println(tar.onkoKadessaKaksiParia());
     }
 }
