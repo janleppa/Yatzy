@@ -73,6 +73,66 @@ public class Pistelaskuri {
     }
 
     /**
+     * Palauttaa 15, jos kädessä on pieni suora. Muulloin 0.
+     *
+     * @return 15 tai 0.
+     */
+    public int pieniSuoraPisteet() {
+        if (!this.tarkastaja.onkoKadessaPieniSuora()) {
+            return 0;
+        }
+
+        return 15;
+    }
+
+    /**
+     * Palauttaa 20, jos kädessä on iso suora. Muulloin 0.
+     *
+     * @return 20 tai 0.
+     */
+    public int isoSuoraPisteet() {
+        if (!this.tarkastaja.onkoKadessaIsoSuora()) {
+            return 0;
+        }
+
+        return 20;
+    }
+    
+    /**
+     * Jos kädessä on täyskäsi, niin metodi palauttaa noppien silmälukujen summan.
+     *
+     * @return Noppien silmälukujen summa.
+     */
+
+    public int tayskasiPisteet() {
+        if (!this.tarkastaja.onkoKadessaTayskasi()) {
+            return 0;
+        }
+
+        int summa = 0;
+        ArrayList<Noppa> nopat = this.kasi.getNoppaLista();
+
+        for (Noppa noppa : nopat) {
+            summa = summa + noppa.getSilmaluku();
+        }
+
+        return summa;
+    }
+    
+    /**
+     * Metodi antaa pisteet ykkösille, kakkosille jne. Parametri <code>n</code>
+     * kertoo minkä luvun pisteitä halutaan laskea. Pisteet saadan laskemalla luvun <code>n</code>
+     * esiintymiskerrat kerrottina <code>n</code>:llä.
+     * @param n Luku, jonka pisteitä lasketaan.
+     * @return Luvun <code>n</code> pistemäärä.  
+     */
+    
+    public int luvunNPisteet(int n) {
+        int lkm = this.laskeSilmaluvunNlkm(n);
+        return n*lkm;
+    }
+
+    /**
      * Laskee kuinka monta kertaa tietty silmäluku
      * <code>n</code> esiintyy noppakädessä.
      *
@@ -91,7 +151,7 @@ public class Pistelaskuri {
 
         return iii;
     }
-
+    
     /**
      * Palauttaa suurimman luvun, joka esiintyy kädessä
      * <code>n</code> kertaa. Jos mitään lukua ei löydy
