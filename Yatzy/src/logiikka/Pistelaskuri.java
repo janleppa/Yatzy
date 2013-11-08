@@ -108,15 +108,8 @@ public class Pistelaskuri {
         if (!this.tarkastaja.onkoKadessaTayskasi()) {
             return 0;
         }
-
-        int summa = 0;
-        ArrayList<Noppa> nopat = this.kasi.getNoppaLista();
-
-        for (Noppa noppa : nopat) {
-            summa = summa + noppa.getSilmaluku();
-        }
-
-        return summa;
+        return this.kadenSumma();
+       
     }
     
     /**
@@ -130,6 +123,13 @@ public class Pistelaskuri {
     public int luvunNPisteet(int n) {
         int lkm = this.laskeSilmaluvunNlkm(n);
         return n*lkm;
+    }
+    /**
+     * Palauttaa sattuman pisteet, eli käden noppien silmäluvut laskettuna yhteen.
+     * @return Silmälukujen summa.
+     */
+    public int sattumaPisteet() {
+        return this.kadenSumma();
     }
 
     /**
@@ -168,5 +168,17 @@ public class Pistelaskuri {
 
         }
         return 0;
+    }
+    
+    private int kadenSumma() {
+        int summa = 0;
+        ArrayList<Noppa> nopat = this.kasi.getNoppaLista();
+
+        for (Noppa noppa : nopat) {
+            summa = summa + noppa.getSilmaluku();
+        }
+        
+        return summa;
+        
     }
 }
