@@ -137,6 +137,13 @@ public class Pistelaskuri {
         return this.kadenSumma();
 
     }
+    
+    /**
+     * Metodi etsii kädestä kaksi paria, ja laskee näiden summan. Apuna käytetään metodia <code>luvunNPisteet(n)</code>,
+     * jolla tarkistetaan, mikä on kädessä esiintyvien <code>n</code>:ien summa. Jos se on suurempaa tai 
+     * yhtäsuurta kuin <code>2*n</code>, niin kädessä on pari, joka tuottaa pisteet <code>2*n</code>.  
+     * @return Kahden parin pisteet.
+     */
 
     public int kaksiPariaPisteet() {
         if (!this.tarkastaja.onkoKadessaKaksiParia()) {

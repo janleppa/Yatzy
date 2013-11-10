@@ -104,7 +104,7 @@ public class PistelaskuriTest {
         this.laskuri.setKasi(ei);
         assertTrue(this.laskuri.isoSuoraPisteet() == 0);
     }
-    
+
     @Test
     public void testaaPieniSuoraPisteet() {
         Noppakasi ei = new Noppakasi(2, 3, 4, 5, 6);
@@ -116,7 +116,7 @@ public class PistelaskuriTest {
         this.laskuri.setKasi(ei);
         assertTrue(this.laskuri.pieniSuoraPisteet() == 0);
     }
-    
+
     @Test
     public void testaaKaksiPariaPisteet() {
         Noppakasi on = new Noppakasi(2, 2, 4, 4, 6);
@@ -130,15 +130,42 @@ public class PistelaskuriTest {
 
         this.laskuri.setKasi(ei);
         assertTrue(this.laskuri.kaksiPariaPisteet() == 0);
-        
+
         this.laskuri.setKasi(on2);
         assertTrue(this.laskuri.kaksiPariaPisteet() == 18);
 
         this.laskuri.setKasi(ei2);
         assertTrue(this.laskuri.kaksiPariaPisteet() == 0);
-        
+
         this.laskuri.setKasi(on3);
         assertTrue(this.laskuri.kaksiPariaPisteet() == 6);
     }
-    
+
+    @Test
+    public void testaaLuvunNPisteet() {
+        Noppakasi on = new Noppakasi(2, 2, 4, 4, 6);
+
+        this.laskuri.setKasi(on);
+
+        assertTrue(this.laskuri.luvunNPisteet(1) == 0);
+        assertTrue(this.laskuri.luvunNPisteet(2) == 4);
+        assertTrue(this.laskuri.luvunNPisteet(3) == 0);
+        assertTrue(this.laskuri.luvunNPisteet(4) == 8);
+        assertTrue(this.laskuri.luvunNPisteet(5) == 0);
+        assertTrue(this.laskuri.luvunNPisteet(6) == 6);
+    }
+
+    @Test
+    public void testaaSattumaPisteet() {
+        Noppakasi on = new Noppakasi(2, 2, 4, 4, 6);
+        Noppakasi on2 = new Noppakasi(1, 2, 1, 4, 1);
+        
+        this.laskuri.setKasi(on);
+        assertTrue(this.laskuri.sattumaPisteet() == 18);
+        
+        this.laskuri.setKasi(on2);
+        assertTrue(this.laskuri.sattumaPisteet() == 9);
+        
+        
+    }
 }
