@@ -137,7 +137,7 @@ public class Pistelaskuri {
      * <code>n</code> esiintyy noppakädessä.
      *
      * @param n Jokin silmäluku.
-     * @return Silmäluvun esiintymis lukumäärä.
+     * @return Silmäluvun esiintymislukumäärä.
      */
     private int laskeSilmaluvunNlkm(int n) {
         int iii = 0;

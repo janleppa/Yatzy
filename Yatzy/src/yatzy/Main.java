@@ -11,6 +11,6 @@ public class Main {
         Pistelaskuri las = new Pistelaskuri(on1);
 
 
-        System.out.println(las.luvunNPisteet(4));
+        System.out.println(las.luvunNPisteet(6));
     }
 }
