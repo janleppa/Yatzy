@@ -6,12 +6,38 @@ import yatzy.Noppakasi;
 
 public class Pistelaskuri {
 
+    /**
+     * Käsi, jonka tuottamia pistemääriä halutaan laskea.
+     */
     private Noppakasi kasi;
+    /**
+     * Tarkastaja auttaa pisteiden laskemisessa.
+     */
     private Kadentarkastaja tarkastaja;
 
+    /**
+     * Konstruktorille annetaan parametrina tarkasteltava käsi. Sama käsi
+     * annetaan myös oliomuuttujalle
+     * <code>tarkastaja</code>. Käsi asetetaan suuruusjärjestykseen pistelaskua
+     * helpottamaan.
+     *
+     * @param kasi Tarkasteltava käsi.
+     */
     public Pistelaskuri(Noppakasi kasi) {
         this.kasi = kasi;
         this.tarkastaja = new Kadentarkastaja(this.kasi);
+        this.kasi.jarjestaKasi();
+    }
+
+    /**
+     * Metodi vaihtaa tarkasteltavan käden. Käsi asetetaan suuruusjärjestykseen.
+     *
+     * @param kasi Uusi käsi.
+     */
+    public void setKasi(Noppakasi kasi) {
+        this.kasi = kasi;
+        this.tarkastaja.setKasi(kasi);
+        this.kasi.jarjestaKasi();
     }
 
     /**
@@ -97,35 +123,57 @@ public class Pistelaskuri {
 
         return 20;
     }
-    
+
     /**
-     * Jos kädessä on täyskäsi, niin metodi palauttaa noppien silmälukujen summan.
+     * Jos kädessä on täyskäsi, niin metodi palauttaa noppien silmälukujen
+     * summan.
      *
      * @return Noppien silmälukujen summa.
      */
-
     public int tayskasiPisteet() {
         if (!this.tarkastaja.onkoKadessaTayskasi()) {
             return 0;
         }
         return this.kadenSumma();
-       
+
     }
-    
+
+    public int kaksiPariaPisteet() {
+        if (!this.tarkastaja.onkoKadessaKaksiParia()) {
+            return 0;
+        }
+
+        int summa = 0;
+
+        for (int n = 6; n >= 1; n--) {
+
+            if (this.luvunNPisteet(n) >= 2 * n) {
+                summa = summa + 2 * n;
+            }
+        }
+
+        return summa;
+    }
+
     /**
-     * Metodi antaa pisteet ykkösille, kakkosille jne. Parametri <code>n</code>
-     * kertoo minkä luvun pisteitä halutaan laskea. Pisteet saadan laskemalla luvun <code>n</code>
-     * esiintymiskerrat kerrottina <code>n</code>:llä.
+     * Metodi antaa pisteet ykkösille, kakkosille jne. Parametri
+     * <code>n</code> kertoo minkä luvun pisteitä halutaan laskea. Pisteet
+     * saadan laskemalla luvun
+     * <code>n</code> esiintymiskerrat kerrottina
+     * <code>n</code>:llä.
+     *
      * @param n Luku, jonka pisteitä lasketaan.
-     * @return Luvun <code>n</code> pistemäärä.  
+     * @return Luvun <code>n</code> pistemäärä.
      */
-    
     public int luvunNPisteet(int n) {
         int lkm = this.laskeSilmaluvunNlkm(n);
-        return n*lkm;
+        return n * lkm;
     }
+
     /**
-     * Palauttaa sattuman pisteet, eli käden noppien silmäluvut laskettuna yhteen.
+     * Palauttaa sattuman pisteet, eli käden noppien silmäluvut laskettuna
+     * yhteen.
+     *
      * @return Silmälukujen summa.
      */
     public int sattumaPisteet() {
@@ -151,7 +199,7 @@ public class Pistelaskuri {
 
         return iii;
     }
-    
+
     /**
      * Palauttaa suurimman luvun, joka esiintyy kädessä
      * <code>n</code> kertaa. Jos mitään lukua ei löydy
@@ -169,7 +217,7 @@ public class Pistelaskuri {
         }
         return 0;
     }
-    
+
     private int kadenSumma() {
         int summa = 0;
         ArrayList<Noppa> nopat = this.kasi.getNoppaLista();
@@ -177,8 +225,8 @@ public class Pistelaskuri {
         for (Noppa noppa : nopat) {
             summa = summa + noppa.getSilmaluku();
         }
-        
+
         return summa;
-        
+
     }
 }

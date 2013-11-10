@@ -29,7 +29,7 @@ public class KadentarkastajaTest {
         int iii = 1;
 
         while (iii <= 5) {
-            assertTrue(tar.onkoKadessaLukuN(iii) == false);
+            assertFalse(tar.onkoKadessaLukuN(iii));
             iii++;
         }
 
@@ -47,7 +47,7 @@ public class KadentarkastajaTest {
         this.kasi.valitseNoppa(1);
         this.kasi.heitaValitsemattomat();
 
-        assertTrue(this.tar.onkoKadessaIsoSuora() == false);
+        assertFalse(this.tar.onkoKadessaIsoSuora());
     }
 
     @Test
@@ -62,7 +62,7 @@ public class KadentarkastajaTest {
         this.kasi.valitseNoppa(1);
         this.kasi.heitaValitsemattomat();
 
-        assertTrue(this.tar.onkoKadessaPieniSuora() == false);
+        assertFalse(this.tar.onkoKadessaPieniSuora());
     }
 
     @Test
@@ -84,9 +84,9 @@ public class KadentarkastajaTest {
         this.tar.setKasi(pari4);
         assertTrue(tar.onkoKadessaPari());
         this.tar.setKasi(eiPari1);
-        assertTrue(!tar.onkoKadessaPari());
+        assertFalse(tar.onkoKadessaPari());
         this.tar.setKasi(eiPari2);
-        assertTrue(!tar.onkoKadessaPari());
+        assertFalse(tar.onkoKadessaPari());
 
     }
 
@@ -99,7 +99,7 @@ public class KadentarkastajaTest {
         assertTrue(this.tar.onkoKadessaKolmoset());
 
         this.tar.setKasi(ei1);
-        assertTrue(!this.tar.onkoKadessaKolmoset());
+        assertFalse(this.tar.onkoKadessaKolmoset());
     }
 
     @Test
@@ -111,7 +111,7 @@ public class KadentarkastajaTest {
         assertTrue(this.tar.onkoKadessaNeloset());
 
         this.tar.setKasi(ei1);
-        assertTrue(!this.tar.onkoKadessaNeloset());
+        assertFalse(this.tar.onkoKadessaNeloset());
     }
     
     @Test
@@ -123,7 +123,7 @@ public class KadentarkastajaTest {
         assertTrue(this.tar.onkoKadessaYatzy());
 
         this.tar.setKasi(ei1);
-        assertTrue(!this.tar.onkoKadessaYatzy());
+        assertFalse(this.tar.onkoKadessaYatzy());
     }
     
     @Test
@@ -140,10 +140,10 @@ public class KadentarkastajaTest {
         assertTrue(this.tar.onkoKadessaTayskasi());
 
         this.tar.setKasi(ei1);
-        assertTrue(!this.tar.onkoKadessaTayskasi());
+        assertFalse(this.tar.onkoKadessaTayskasi());
         
         this.tar.setKasi(ei2);
-        assertTrue(!this.tar.onkoKadessaTayskasi());
+        assertFalse(this.tar.onkoKadessaTayskasi());
     }
     
     @Test
@@ -160,9 +160,9 @@ public class KadentarkastajaTest {
         assertTrue(this.tar.onkoKadessaKaksiParia());
 
         this.tar.setKasi(ei1);
-        assertTrue(!this.tar.onkoKadessaKaksiParia());
+        assertFalse(this.tar.onkoKadessaKaksiParia());
         
         this.tar.setKasi(ei2);
-        assertTrue(!this.tar.onkoKadessaKaksiParia());
+        assertFalse(this.tar.onkoKadessaKaksiParia());
     }
 }

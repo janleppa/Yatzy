@@ -50,12 +50,12 @@ public class NoppaTest {
     @Test
     public void testaaValitseMetodi() {
         this.noppa.valitse();
-        assertTrue(this.noppa.onkoValittu() == true);
+        assertTrue(this.noppa.onkoValittu());
     }
 
     @Test
     public void testaaPoistaValintaMetodi() {
         this.noppa.poistaValinta();
-        assertTrue(this.noppa.onkoValittu() == false);
+        assertFalse(this.noppa.onkoValittu());
     }
 }

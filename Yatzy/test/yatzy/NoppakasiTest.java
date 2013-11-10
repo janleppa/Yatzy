@@ -18,17 +18,17 @@ public class NoppakasiTest {
     
     @Test 
     public void testaaValitseNoppa() {
-        assertTrue(this.kasi.getNoppaNroN(1).onkoValittu()==false);
+        assertFalse(this.kasi.getNoppaNroN(1).onkoValittu());
         this.kasi.valitseNoppa(1);
-        assertTrue(this.kasi.getNoppaNroN(1).onkoValittu()==true);
+        assertTrue(this.kasi.getNoppaNroN(1).onkoValittu());
         
     }
     
     @Test
     public void testaaPoistaValinta() {
         this.kasi.valitseNoppa(1);
-        assertTrue(this.kasi.getNoppaNroN(1).onkoValittu()==true);
+        assertTrue(this.kasi.getNoppaNroN(1).onkoValittu());
         this.kasi.poistaValintaNopalta(1);
-        assertTrue(this.kasi.getNoppaNroN(1).onkoValittu()==false);
+        assertFalse(this.kasi.getNoppaNroN(1).onkoValittu());
     }
 }

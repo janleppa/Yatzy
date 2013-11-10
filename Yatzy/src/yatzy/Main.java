@@ -7,10 +7,10 @@ import logiikka.Pistelaskuri;
 public class Main {
 
     public static void main(String[] args) {
-        Noppakasi on1 = new Noppakasi(6, 6, 6, 6, 4);
-        Pistelaskuri las = new Pistelaskuri(on1);
+        Noppakasi on = new Noppakasi(1,2,3,5,6);
+        Pistelaskuri las = new Pistelaskuri(on);
 
 
-        System.out.println(las.luvunNPisteet(6));
+        System.out.println(las.yatzyPisteet());
     }
 }
