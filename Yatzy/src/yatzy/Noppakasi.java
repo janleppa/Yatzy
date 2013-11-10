@@ -4,8 +4,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Noppakasi {
-
+    /**
+     * Lista, joka pitää sisällään käden <code>Noppa</code>-oliot.
+     */
     private ArrayList<Noppa> nopat;
+    
+    /**
+     * Konstruktori luo uuden noppakäden, jossa jokaisen nopan silmäluku on <code>1</code>.
+     */
 
     public Noppakasi() {
         this(1, 1, 1, 1, 1);
@@ -13,6 +19,15 @@ public class Noppakasi {
 
 
     }
+    
+    /**
+     * Konstruktori, joka mahdollistaa halutunlaisen käden luomisen
+     * @param eka Ensimmäisen nopan silmäluku.
+     * @param toka Toisen nopan silmäluku.
+     * @param kolmas Kolmannen nopan silmäluku.
+     * @param neljas Neljännen nopan silmäluku.
+     * @param viides Viidennen nopan silmäluku.
+     */
 
     public Noppakasi(int eka, int toka, int kolmas, int neljas, int viides) {
         this.nopat = new ArrayList<Noppa>();
@@ -22,6 +37,10 @@ public class Noppakasi {
         this.nopat.add(new Noppa(neljas));
         this.nopat.add(new Noppa(viides));
     }
+    
+    /**
+     * Heittää kädestä nopat, jotka eivät ole valittuja.
+     */
 
     public void heitaValitsemattomat() {
         for (Noppa noppa : this.nopat) {
@@ -30,6 +49,10 @@ public class Noppakasi {
             }
         }
     }
+    
+    /**
+     * Apumetodi uuden käden luomiseen.
+     */
 
     private void alustaKasi() {
         int iii = 1;
@@ -39,6 +62,11 @@ public class Noppakasi {
 
         }
     }
+    
+    /**
+     * Palauttaa käden merkkijonoesityksen, jossa näkyy noppien silmäluvut pilkuin erotettuina.
+     * @return 
+     */
 
     public String toString() {
 
@@ -49,23 +77,47 @@ public class Noppakasi {
 
         return tulos;
     }
+    
+    /**
+     * Valitsee kädestä nopan numero <code>n</code>. Ensimmäisen nopan numero on <code>1</code>.
+     * @param n Nopan järjestysluku.
+     */
 
     public void valitseNoppa(int n) {
         this.nopat.get(n - 1).valitse();
 
     }
+    
+    /**
+     * Poistaa valinnan nopalta numero <code>n</code>. Ensimmäisen nopan numero on <code>1</code>. 
+     * @param n Nopan järjestysluku.
+     */
 
     public void poistaValintaNopalta(int n) {
         this.nopat.get(n - 1).poistaValinta();
     }
+    
+    /**
+     * Nopat asetetaan suuruusjärjestykseen pienimmästä alkaen.
+     */
 
     public void jarjestaKasi() {
         Collections.sort(this.nopat);
     }
+    
+    /**
+     * Palauttaa noppakäden nopat listana.
+     * @return <code>ArrayList</code>, joka sisältää <code>Noppa</code> oliot.
+     */
 
     public ArrayList<Noppa> getNoppaLista() {
         return this.nopat;
     }
+    
+    /**
+     * Metodi, jolla voidaam kopioda annettu käsi.
+     * @return Palauttaa <code>Noppakasi</code>-olion kopion.
+     */
 
     public Noppakasi KopioiKasi() {
         Noppakasi k = new Noppakasi();
@@ -79,14 +131,31 @@ public class Noppakasi {
 
         return k;
     }
+    
+    /**
+     * Asettaa noppakädeksi parametrina saadun noppia sisältävän lista.
+     * @param nopat <code>ArrayList</code> joka sisältää <code>Noppa</code>-olioita.
+     */
 
     public void setNopat(ArrayList<Noppa> nopat) {
         this.nopat = nopat;
     }
+    
+    /**
+     * Kertoo halutun nopan silmäluvun.
+     * @param n Nopan järjestysluku
+     * @return Kysytyn nopan silmäluku.
+     */
 
     public int annaNopanNSilmaluku(int n) {
         return this.nopat.get(n - 1).getSilmaluku();
     }
+    
+    /**
+     * Palauttaa Noppakädestä halutun nopan.
+     * @param n Nopan järjestysluku.
+     * @return <code>Noppa</code> olio.
+     */
 
     public Noppa getNoppaNroN(int n) {
         return this.nopat.get(n - 1);

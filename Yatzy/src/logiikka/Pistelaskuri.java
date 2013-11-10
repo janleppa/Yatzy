@@ -224,6 +224,11 @@ public class Pistelaskuri {
         }
         return 0;
     }
+    
+    /**
+     * Metodi laskee käden noppien silmälukujen summan.
+     * @return Käden noppien silmälukujen summa.
+     */
 
     private int kadenSumma() {
         int summa = 0;

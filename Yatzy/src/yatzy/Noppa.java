@@ -3,8 +3,13 @@ package yatzy;
 import java.util.Random;
 
 public class Noppa implements Comparable<Noppa> {
-
+    /**
+     * <code>Randomia</code> käytetään luomaan satunnaisia kokonaislukuja simuloitaessa nopan heittoa.
+     */
     private Random random;
+    /**
+     * Nopan osoittama silmäluku. Eli jokin kokonaisluku väliltä 1-6.
+     */
     private int silmaluku;
     /**
      * Yatzy-pelissä heittojen välillä voidaan valita tietty määrä noppia, 
@@ -66,7 +71,7 @@ public class Noppa implements Comparable<Noppa> {
     }
     
     /**
-     * Valitsee nopan. Eli oliomuuttujan "valittu" arvoksi tulee true.
+     * Valitsee nopan. Eli oliomuuttujan <code>valittu</code> arvoksi tulee <code>true</code>.
      */
 
     public void valitse() {
@@ -82,9 +87,9 @@ public class Noppa implements Comparable<Noppa> {
     }
     
     /**
-     * Metodi mahdollistaa Noppa-luokan ilmentymien vertailun noppien silmälukujen perusteella.
+     * Metodi mahdollistaa <code>Noppa</code>-luokan ilmentymien vertailun noppien silmälukujen perusteella.
      * @param o Noppa-luokan olio
-     * @return 
+     * @return Kokonaisluku, jonka avulla nopat laitetaan järjestykseen. 
      */
 
     @Override
