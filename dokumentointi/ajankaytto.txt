@@ -4,4 +4,5 @@
 5.11.		2h		Luokkia p‰ivitelty ja testiluokkia luotu
 6.11.		4h		Testiluokkia ja erityisesti k‰dentarkastaja luokkaan tehty lis‰‰ metodeja
 8.11.		3h		Javadocin kirjoitus aloitettu, testej‰, pistelaskuri luokka.
-10.11.		2h		Javadocia ja testej‰.		
+10.11.		2h		Javadocia ja testej‰.
+11.11.		3h		Pistetaulukko-luokan ohjemointia ja testej‰		
