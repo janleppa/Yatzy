@@ -57,4 +57,37 @@ public class PistetaulukkoTest {
 
         assertTrue(this.pis.getPisteetNrona("Kaksi paria") == 16);
     }
+    
+    @Test
+    public void testaaOnkoTaulukkoTaynna(){
+        Noppakasi pari = new Noppakasi(6, 6, 3, 2, 2);
+        this.las.setKasi(pari);
+
+        this.pis.lisaaKaksiPariaPisteet();
+        
+        assertFalse(this.pis.onkoTaulukkoTaynna());
+        
+    }
+    
+    @Test
+    public void testaaOnkoTaulukkoTaynna2(){
+        this.pis.getTaulukko().put("Ykkoset", 1);
+        this.pis.getTaulukko().put("Kakkoset", 1);
+        this.pis.getTaulukko().put("Kolmoset", 1);
+        this.pis.getTaulukko().put("Neloset", 1);
+        this.pis.getTaulukko().put("Vitoset", 1);
+        this.pis.getTaulukko().put("Kutoset", 1);
+        this.pis.getTaulukko().put("Pari", 1);
+        this.pis.getTaulukko().put("Kaksi paria", 1);
+        this.pis.getTaulukko().put("Kolme samaa", 1);
+        this.pis.getTaulukko().put("Nelja samaa", 1);
+        this.pis.getTaulukko().put("Pieni suora", 1);
+        this.pis.getTaulukko().put("Iso suora", 1);
+        this.pis.getTaulukko().put("Tayskasi", 1);
+        this.pis.getTaulukko().put("Sattuma", 1);
+        this.pis.getTaulukko().put("Yatzy", 1);
+        
+        assertTrue(this.pis.onkoTaulukkoTaynna());
+        
+    }
 }

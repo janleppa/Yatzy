@@ -187,6 +187,15 @@ public class Pistetaulukko {
 
     }
     
+    public boolean onkoTaulukkoTaynna() {
+        for(Integer piste : this.pisteet.values()) {
+            if(piste==null) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
     /**
      * Apumetodi, jolla luodaan haluttu määrä välilyöntejä.
      * @param n Kuinka monta välilyöntiä halutaan.
@@ -204,5 +213,9 @@ public class Pistetaulukko {
 
         return merkki;
 
+    }
+    
+    public HashMap<String, Integer> getTaulukko() {
+        return this.pisteet;
     }
 }
