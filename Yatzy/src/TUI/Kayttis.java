@@ -1,6 +1,7 @@
 package TUI;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import logiikka.Yatzypeli;
 import yatzy.Noppakasi;
@@ -57,8 +58,13 @@ public class Kayttis {
 
         this.peli = new Yatzypeli(pelaajat);
         this.peli.luoPisteTaulukotPelaajille();
-
-        pelaaKierros();
+        
+        while(this.peli.jatkuukoPeli()) {
+        pelaaKierros();    
+        }
+        
+        pelinLopetus();
+        
     }
 
     private void pelaaKierros() {
@@ -77,13 +83,19 @@ public class Kayttis {
         System.out.println("Nopat kolisevat pöytään.");
 
         kasi.heitaValitsemattomat();
-
+        int heitot = 1;
 
 
         while (true) {
-            int heitot = 1;
+
 
             if (heitot >= 3) {
+                System.out.println("Lopullinen noppakätesi:");
+                kasi.poistaKaikkiNoppaValinnat();
+                System.out.println(kasi);
+                System.out.println("Paina enter asettaaksesi käden pisteet.");
+                lueKayttajanKomento();
+                asetaKasiTaulukkoon(pelaaja);
                 break;
             }
 
@@ -97,11 +109,12 @@ public class Kayttis {
                 valitseNoppia();
             } else if (komento.equals("2")) {
                 heitot++;
-                this.peli.getNoppakasi().heitaValitsemattomat();
+                kasi.heitaValitsemattomat();
             } else if (komento.equals("3")) {
                 printtaaTaulukko(pelaaja);
             } else if (komento.equals("4")) {
-                asetaKasiTaulukkoon();
+                asetaKasiTaulukkoon(pelaaja);
+                break;
             } else {
                 System.out.println("Väärä komento. Kokeile uudelleen.");
             }
@@ -123,11 +136,47 @@ public class Kayttis {
     }
 
     private void valitseNoppia() {
-        throw new UnsupportedOperationException("Not yet implemented");
+        Noppakasi kasi = this.peli.getNoppakasi();
+
+        System.out.println("\nSyötä niiden noppien järjestysnumerot, jotka haluat valita. "
+                + "Voit poistaa valinnan antamalla jo valitun nopan järjestysnumero. "
+                + "Kun olet tehnyt haluamasi valinnat, syötä luku 0 vahvistaaksesi noppien valinta.");
+
+        while (true) {
+            System.out.print("Nopan numero: ");
+            try {
+                int luku = this.lukija.nextInt();
+
+                if (luku == 0) {
+                    break;
+                } else if (luku < 1 || luku > 6) {
+                    System.out.println("Syötä luku väliltä 1-5!");
+                } else {
+                    if (kasi.getNoppaNroN(luku).onkoValittu()) {
+                        kasi.getNoppaNroN(luku).poistaValinta();
+                    } else {
+                        kasi.getNoppaNroN(luku).valitse();
+                    }
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Et tainnut syöttää kokonaislukua.");
+                valitseNoppia();
+            }
+
+        }
+
     }
 
-    private void asetaKasiTaulukkoon() {
-        throw new UnsupportedOperationException("Not yet implemented");
+    private void asetaKasiTaulukkoon(Pelaaja pelaaja) {
+        System.out.println("Pistetaulukkosi:");
+        System.out.println(pelaaja.getTaulukko().toString());
+        System.out.println("Mihin kohtaan haluat sijoittaa pisteesi?\n"
+                + "Syötä sen kohdan nimi täsmälleen samoin kun se lukee taulukossa.");
+        
+        String minne = this.lueKayttajanKomento();
+        pelaaja.getTaulukko().lisaaPisteet(minne);
+        System.out.println("Pistetaulukkosi:");
+        System.out.println(pelaaja.getTaulukko().toString());
     }
 
     private void printtaaTaulukko(Pelaaja pelaaja) {
@@ -139,5 +188,9 @@ public class Kayttis {
             break;
         }
 
+    }
+
+    private void pelinLopetus() {
+        System.out.println("Peli loppui!");
     }
 }

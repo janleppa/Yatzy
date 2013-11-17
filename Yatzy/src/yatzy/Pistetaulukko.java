@@ -186,27 +186,27 @@ public class Pistetaulukko {
 
 
     }
-    
+
     /**
      * Metodi kertoo onko taulukon jokaisella riville merkitty pistemäärä.
-     * @return <code>true</code>, jos taulukko täysi, muulloin <code>false</code>. 
+     *
+     * @return <code>true</code>, jos taulukko täysi,      * muulloin <code>false</code>.
      */
-    
     public boolean onkoTaulukkoTaynna() {
-        for(Integer piste : this.pisteet.values()) {
-            if(piste==null) {
+        for (Integer piste : this.pisteet.values()) {
+            if (piste == null) {
                 return false;
             }
         }
         return true;
     }
-    
+
     /**
      * Apumetodi, jolla luodaan haluttu määrä välilyöntejä.
+     *
      * @param n Kuinka monta välilyöntiä halutaan.
      * @return Merkkijono, joka sisältää välilyöntejä.
      */
-
     private String montaTyhjaa(int n) {
         String merkki = "";
         int iii = 1;
@@ -219,8 +219,44 @@ public class Pistetaulukko {
         return merkki;
 
     }
-    
+
     public HashMap<String, Integer> getTaulukko() {
         return this.pisteet;
+    }
+
+    public void lisaaPisteet(String mihin) {
+        if (this.pisteet.containsKey(mihin)) {
+            if (mihin.equals("Ykkoset")) {
+                this.lisaaLuvunNPisteet(1);
+            } else if (mihin.equals("Kakkoset")) {
+                this.lisaaLuvunNPisteet(2);
+            } else if (mihin.equals("Kolmoset")) {
+                this.lisaaLuvunNPisteet(3);
+            } else if (mihin.equals("Neloset")) {
+                this.lisaaLuvunNPisteet(4);
+            } else if (mihin.equals("Vitoset")) {
+                this.lisaaLuvunNPisteet(5);
+            } else if (mihin.equals("Kutoset")) {
+                this.lisaaLuvunNPisteet(6);
+            } else if (mihin.equals("Pari")) {
+                this.lisaaParinPisteet();
+            } else if (mihin.equals("Kaksi paria")) {
+                this.lisaaKaksiPariaPisteet();
+            } else if (mihin.equals("Kolme samaa")) {
+                this.lisaaKolmostenPisteet();
+            } else if (mihin.equals("Nelja samaa")) {
+                this.lisaaNelostenPisteet();
+            } else if (mihin.equals("Pieni suora")) {
+                this.lisaaPienenSuoranPisteet();
+            } else if (mihin.equals("Iso suora")) {
+                this.lisaaIsonSuoranPisteet();
+            } else if (mihin.equals("Tayskasi")) {
+                this.lisaaTayskadenPisteet();
+            } else if (mihin.equals("Sattuma")) {
+                this.lisaaSattumaPisteet();
+            } else if (mihin.equals("Yatzy")) {
+                this.lisaaYatzynPisteet();
+            }
+        }
     }
 }
