@@ -41,7 +41,7 @@ public class Noppa implements Comparable<Noppa> {
     }
 
     /**
-     * Palauttaa nopan merkkijonoesityksen, joka on nopan silmäluku.
+     * Palauttaa nopan merkkijonoesityksen, joka on nopan silmäluku. Jos noppa on valitu, silmäluku esitetään muodossa <code><</code>silmäluku<code>></code>.
      */
     public String toString() {
         if (this.valittu) {

@@ -165,4 +165,14 @@ public class Noppakasi {
     public Noppa getNoppaNroN(int n) {
         return this.nopat.get(n - 1);
     }
+    
+    /**
+     * Asettaa kaikki nopat ei-valituiksi.
+     */
+    
+    public void poistaKaikkiNoppaValinnat() {
+        for(Noppa noppa : this.nopat) {
+            noppa.poistaValinta();
+        }
+    }
 }

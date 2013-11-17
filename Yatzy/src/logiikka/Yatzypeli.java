@@ -40,4 +40,31 @@ public class Yatzypeli {
         }
     }
     
+    /**
+     * Metodi tarkistaa jatkuuko peli. Jos jokaisen pelaajan pistetaulukko on täynnä, peli loppuu. Muussa tapauksessa pelataan edelleen.
+     */
+    
+    public boolean jatkuukoPeli() {
+        for(Pelaaja pelaaja : this.pelaajat) {
+            if(pelaaja.getTaulukko().onkoTaulukkoTaynna() == false) {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    
+    /**
+     * Palauttaa pelaajalistan
+     * @return ArrayList, joka sisältää pelaajat.
+     */
+    
+    public ArrayList<Pelaaja> getPelaajaLista() {
+        return this.pelaajat;
+    }
+    
+    public Noppakasi getNoppakasi() {
+        return this.kasi;
+    }
+    
 }

@@ -42,7 +42,7 @@ public class Pelaaja {
      * @param taulukko Pistetaulukko olio. 
      */
     public void setTaulukko(Pistetaulukko taulukko) {
-        
+        this.pisteet = taulukko;
     }
     
 }

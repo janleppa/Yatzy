@@ -12,22 +12,7 @@ public class Main {
        Scanner lukija = new Scanner(System.in);
        Kayttis kayttis = new Kayttis(lukija);
        
-       Noppakasi kasi = new Noppakasi(1,3,5,6,2);
-       kasi.heitaValitsemattomat();
-       
-       System.out.println(kasi);
-       kasi.valitseNoppa(1);
-       
-       
-       
-       kasi.valitseNoppa(4);
-       kasi.valitseNoppa(5);
-       
-       System.out.println(kasi);
-       
-       kasi.heitaValitsemattomat();
-       
-        System.out.println(kasi);
+       kayttis.run();
         
     }
 }
