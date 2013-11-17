@@ -1,26 +1,33 @@
 package yatzy;
 
+import TUI.Kayttis;
 import java.util.ArrayList;
+import java.util.Scanner;
 import logiikka.Kadentarkastaja;
 import logiikka.Pistelaskuri;
 
 public class Main {
 
     public static void main(String[] args) {
-        Noppakasi on = new Noppakasi(1,1,1,1,6);
-        Pistelaskuri las = new Pistelaskuri(on);
-        Pistetaulukko pis = new Pistetaulukko(las);
-        System.out.println(pis);
-        pis.lisaaLuvunNPisteet(1);
-        System.out.println("---------------------");
-
-        System.out.println(pis);
-        System.out.println("---------------------");
-        on.heitaValitsemattomat();
-        System.out.println(on);
-        pis.lisaaLuvunNPisteet(1);
-        System.out.println("---------------------");
-        System.out.println(pis);
+       Scanner lukija = new Scanner(System.in);
+       Kayttis kayttis = new Kayttis(lukija);
+       
+       Noppakasi kasi = new Noppakasi(1,3,5,6,2);
+       kasi.heitaValitsemattomat();
+       
+       System.out.println(kasi);
+       kasi.valitseNoppa(1);
+       
+       
+       
+       kasi.valitseNoppa(4);
+       kasi.valitseNoppa(5);
+       
+       System.out.println(kasi);
+       
+       kasi.heitaValitsemattomat();
+       
+        System.out.println(kasi);
         
     }
 }

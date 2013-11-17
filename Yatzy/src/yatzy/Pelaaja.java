@@ -16,9 +16,9 @@ public class Pelaaja {
      * @param nimi Pelaajan nimi.
      * @param pisteet Pistetaulukko. 
      */
-    public Pelaaja(String nimi, Pistetaulukko pisteet) {
+    public Pelaaja(String nimi) {
         this.nimi = nimi;
-        this.pisteet = pisteet;
+        
     }
     /**
      * Palauttaa pelaajan pistetaulukon.
@@ -35,6 +35,14 @@ public class Pelaaja {
     
     public String getNimi() {
         return this.nimi;
+    }
+    
+    /**
+     * Asettaa annetun pistetaulukon pelaajalle
+     * @param taulukko Pistetaulukko olio. 
+     */
+    public void setTaulukko(Pistetaulukko taulukko) {
+        
     }
     
 }

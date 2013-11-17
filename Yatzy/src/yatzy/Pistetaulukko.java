@@ -187,6 +187,11 @@ public class Pistetaulukko {
 
     }
     
+    /**
+     * Metodi kertoo onko taulukon jokaisella riville merkitty pistemäärä.
+     * @return <code>true</code>, jos taulukko täysi, muulloin <code>false</code>. 
+     */
+    
     public boolean onkoTaulukkoTaynna() {
         for(Integer piste : this.pisteet.values()) {
             if(piste==null) {
