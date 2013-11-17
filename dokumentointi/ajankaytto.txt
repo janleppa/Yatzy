@@ -5,4 +5,9 @@
 6.11.		4h		Testiluokkia ja erityisesti kädentarkastaja luokkaan tehty lisää metodeja
 8.11.		3h		Javadocin kirjoitus aloitettu, testejä, pistelaskuri luokka.
 10.11.		2h		Javadocia ja testejä.
-11.11.		3h		Pistetaulukko-luokan ohjemointia ja testejä		
+11.11.		3h		Pistetaulukko-luokan ohjemointia ja testejä
+14.11.		2h		Luokkakaavio ja ohjelmointia
+15.11.		2h		Tekstikäyttöliittymän tekemistä
+17.11.		3h		Tekstikäyttiksen ohjelmointia
+
+		
