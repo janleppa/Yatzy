@@ -223,6 +223,11 @@ public class Kayttis {
         System.out.println("Pistetaulukkosi:");
         System.out.println(pelaaja.getTaulukko().toString());
     }
+    
+    /**
+     * Tulostaa pelaajan pistetaulukon
+     * @param pelaaja Kenen taulukko tulostetaan.
+     */
 
     private void printtaaTaulukko(Pelaaja pelaaja) {
         while (true) {

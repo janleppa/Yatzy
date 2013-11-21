@@ -68,8 +68,19 @@ public class Yatzypeli {
         return this.pelaajat;
     }
     
+    /**
+     * Palauttaa pelin noppakäden.
+     * @return Noppakäsi 
+     */
+    
     public Noppakasi getNoppakasi() {
         return this.kasi;
+    }
+    
+    public String tulokset() {
+        String tulokset = "";
+        
+        return tulokset;
     }
     
 }

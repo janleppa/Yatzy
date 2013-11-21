@@ -133,14 +133,10 @@ public class Pistetaulukko {
     public String toString() {
         String taulukko = "";
 
-        int summa = 0;
+        
+        int summa = pisteidenSumma();
 
-        for (Integer piste : this.pisteet.values()) {
-            if (piste == null) {
-            } else {
-                summa = piste + summa;
-            }
-        }
+        
 
         for (String alkio : this.pisteet.keySet()) {
             if (this.pisteet.get(alkio) == null) {
@@ -264,5 +260,18 @@ public class Pistetaulukko {
                 this.lisaaYatzynPisteet();
             }
         }
+    }
+
+    private int pisteidenSumma() {
+        int summa = 0;
+        
+        for (Integer piste : this.pisteet.values()) {
+            if (piste == null) {
+            } else {
+                summa = piste + summa;
+            }
+        }
+        
+        return summa;
     }
 }
