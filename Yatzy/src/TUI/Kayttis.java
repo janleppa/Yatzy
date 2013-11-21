@@ -95,8 +95,9 @@ public class Kayttis {
     }
 
     /**
-     * Metodi kertoo mitä yhden pelaajan vuoron aikana tapahtuu. Pelaaja voi heittää noppia korkeintaan kolmesti, katsoa pistetaulukkoaan,
-     * aseta pisteitä taulukkoon tai valita noppia, joita haluaa lukita.
+     * Metodi kertoo mitä yhden pelaajan vuoron aikana tapahtuu. Pelaaja voi
+     * heittää noppia korkeintaan kolmesti, katsoa pistetaulukkoaan, aseta
+     * pisteitä taulukkoon tai valita noppia, joita haluaa lukita.
      *
      * @param pelaaja Pelaaja, jonka vuoro on.
      */
@@ -147,11 +148,10 @@ public class Kayttis {
         }
 
     }
-    
+
     /**
      * Apumetodi, joka tulostaa pelaajan mahdolliset toiminnot vuoron aikana.
      */
-
     private void tulostaToimintovalikko() {
         System.out.println("Mitä haluat tehdä? Syötä komennon numero ilman pistettä.");
         System.out.println("    1. Valitse noppia");
@@ -159,25 +159,26 @@ public class Kayttis {
         System.out.println("    3. Katso pistetaulukko.");
         System.out.println("    4. Aseta noppakäsi pistetaulukkoon.");
     }
-    
+
     /**
      * Lukee käyttäjän syötteen.
-     * @return  Merkkijono
+     *
+     * @return Merkkijono
      */
-
     private String lueKayttajanKomento() {
         return this.lukija.nextLine();
     }
-    
-    /**
-     * Metodi kysyy pelaajalta nopat, jotka tämää haluaa valita. Jos noppa on jo valittu, sen valinta poistetaan. Nopista syötetään järjestysnumerot ja 0:n syöttäminen vahvistaa valinnan. 
-     * Jos pelaaja ei syötä kokonaislukua, metodi kertoo tästä.
-     */
 
+    /**
+     * Metodi kysyy pelaajalta nopat, jotka tämää haluaa valita. Jos noppa on jo
+     * valittu, sen valinta poistetaan. Nopista syötetään järjestysnumerot ja
+     * 0:n syöttäminen vahvistaa valinnan. Jos pelaaja ei syötä kokonaislukua,
+     * metodi kertoo tästä.
+     */
     private void valitseNoppia() {
         Noppakasi kasi = this.peli.getNoppakasi();
 
-        System.out.println("\nSyötä niiden noppien järjestysnumerot, jotka haluat valita. "
+        System.out.println("\nSyötä yksi kerrallaan niiden noppien järjestysnumerot, jotka haluat valita. "
                 + "Voit poistaa valinnan antamalla jo valitun nopan järjestysnumeron. "
                 + "Kun olet tehnyt haluamasi valinnat, syötä luku 0 vahvistaaksesi noppien valinta.");
 
@@ -205,13 +206,15 @@ public class Kayttis {
         }
 
     }
-    
+
     /**
-     * Asettaa pelaajan sen hetkisen noppakäden pistetaulukkoon. Pelaajalta kysytään mihin yhdistelmään nopat halutaan laittaa.
-     * Yhdistelmän nimi tulee kirjoittaa täsmälleen samoin kuin se mainitaan pistetaulukossa.
+     * Asettaa pelaajan sen hetkisen noppakäden pistetaulukkoon. Pelaajalta
+     * kysytään mihin yhdistelmään nopat halutaan laittaa. Yhdistelmän nimi
+     * tulee kirjoittaa täsmälleen samoin kuin se mainitaan pistetaulukossa. Jos taulukosta ei löydy pelaajan syötettä vastaavaa
+     * sanaa kysytään uudelleen.
+     *
      * @param pelaaja Pelaaja, jonka pisteitä asetetaan.
      */
-
     private void asetaKasiTaulukkoon(Pelaaja pelaaja) {
         System.out.println("Pistetaulukkosi:");
         System.out.println(pelaaja.getTaulukko().toString());
@@ -219,16 +222,21 @@ public class Kayttis {
                 + "Syötä sen kohdan nimi täsmälleen samoin kun se lukee taulukossa.");
 
         String minne = this.lueKayttajanKomento();
-        pelaaja.getTaulukko().lisaaPisteet(minne);
-        System.out.println("Pistetaulukkosi:");
-        System.out.println(pelaaja.getTaulukko().toString());
+        if (pelaaja.getTaulukko().lisaaPisteet(minne) == false) {
+            System.out.println("Kirjoititko varmasti oikein? Yritä uudelleen.");
+            asetaKasiTaulukkoon(pelaaja);
+        } else {
+            pelaaja.getTaulukko().lisaaPisteet(minne);
+            System.out.println("Pistetaulukkosi:");
+            System.out.println(pelaaja.getTaulukko().toString());
+        }
     }
-    
+
     /**
      * Tulostaa pelaajan pistetaulukon
+     *
      * @param pelaaja Kenen taulukko tulostetaan.
      */
-
     private void printtaaTaulukko(Pelaaja pelaaja) {
         while (true) {
             System.out.println("\n" + pelaaja.getTaulukko().toString());
@@ -240,10 +248,17 @@ public class Kayttis {
 
     }
 
+    /**
+     * Pelin lopuksi tulostetaan pelaajien pisteet.
+     */
     private void pelinLopetus() {
         System.out.println("\nPeli loppui!");
+        System.out.println(this.peli.tulokset());
     }
 
+    /**
+     * Kysyy pelaajat ja luo uuden Yatzypelin.
+     */
     private void uusiPeli() {
         ArrayList<Pelaaja> pelaajat = this.kysyPelaajat();
 

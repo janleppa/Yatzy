@@ -7,7 +7,7 @@ package yatzy;
  * @author Janne
  */
 
-public class Pelaaja {
+public class Pelaaja implements Comparable<Pelaaja> {
     /**
      *Taulukko, johon pelaajan pisteet kirjataan.
      */
@@ -48,6 +48,15 @@ public class Pelaaja {
      */
     public void setTaulukko(Pistetaulukko taulukko) {
         this.pisteet = taulukko;
+    }
+
+    @Override
+    public int compareTo(Pelaaja pelaaja) {
+        return  pelaaja.Kerropisteet()-this.Kerropisteet(); 
+    }
+    
+    public int Kerropisteet() {
+        return this.pisteet.KerroLoppuPisteet();
     }
     
 }

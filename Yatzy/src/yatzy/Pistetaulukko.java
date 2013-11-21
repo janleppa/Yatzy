@@ -6,11 +6,12 @@ import java.util.Map;
 import logiikka.Pistelaskuri;
 
 /**
- * Yatzy-pelissä pelaajat keräävät pisteitä erilaisista noppayhdistelmistä ja kirjaavat niitä ylös. Pistetaulukko luokka mallintaa taulukko,
- * johon pisteet merkitään.
+ * Yatzy-pelissä pelaajat keräävät pisteitä erilaisista noppayhdistelmistä ja
+ * kirjaavat niitä ylös. Pistetaulukko luokka mallintaa taulukko, johon pisteet
+ * merkitään.
+ *
  * @author Janne
  */
-
 public class Pistetaulukko {
 
     /**
@@ -133,10 +134,10 @@ public class Pistetaulukko {
     public String toString() {
         String taulukko = "";
 
-        
+
         int summa = pisteidenSumma();
 
-        
+
 
         for (String alkio : this.pisteet.keySet()) {
             if (this.pisteet.get(alkio) == null) {
@@ -192,7 +193,7 @@ public class Pistetaulukko {
     /**
      * Metodi kertoo onko taulukon jokaisella riville merkitty pistemäärä.
      *
-     * @return <code>true</code>, jos taulukko täysi,      * muulloin <code>false</code>.
+     * @return <code>true</code>, jos taulukko täysi, * *      * muulloin <code>false</code>.
      */
     public boolean onkoTaulukkoTaynna() {
         for (Integer piste : this.pisteet.values()) {
@@ -225,53 +226,111 @@ public class Pistetaulukko {
     public HashMap<String, Integer> getTaulukko() {
         return this.pisteet;
     }
+    
+    /**
+     * Lisää pisteet parametrin osoittamaan paikkaa. Jos lisäys onnistui palautuu true, muulloin false.
+     * @param mihin Mihin kohtaan taulukkoa pisteet halutaan.
+     * @return True jos lisäys onnistui, false muuten.
+     */
 
-    public void lisaaPisteet(String mihin) {
+    public boolean lisaaPisteet(String mihin) {
         if (this.pisteet.containsKey(mihin)) {
             if (mihin.equals("Ykkoset")) {
                 this.lisaaLuvunNPisteet(1);
+                return true;
             } else if (mihin.equals("Kakkoset")) {
                 this.lisaaLuvunNPisteet(2);
+                return true;
             } else if (mihin.equals("Kolmoset")) {
                 this.lisaaLuvunNPisteet(3);
+                return true;
             } else if (mihin.equals("Neloset")) {
                 this.lisaaLuvunNPisteet(4);
+                return true;
             } else if (mihin.equals("Vitoset")) {
                 this.lisaaLuvunNPisteet(5);
+                return true;
             } else if (mihin.equals("Kutoset")) {
                 this.lisaaLuvunNPisteet(6);
+                return true;
             } else if (mihin.equals("Pari")) {
                 this.lisaaParinPisteet();
+                return true;
             } else if (mihin.equals("Kaksi paria")) {
                 this.lisaaKaksiPariaPisteet();
+                return true;
             } else if (mihin.equals("Kolme samaa")) {
                 this.lisaaKolmostenPisteet();
+                return true;
             } else if (mihin.equals("Nelja samaa")) {
                 this.lisaaNelostenPisteet();
+                return true;
             } else if (mihin.equals("Pieni suora")) {
                 this.lisaaPienenSuoranPisteet();
+                return true;
             } else if (mihin.equals("Iso suora")) {
                 this.lisaaIsonSuoranPisteet();
+                return true;
             } else if (mihin.equals("Tayskasi")) {
                 this.lisaaTayskadenPisteet();
+                return true;
             } else if (mihin.equals("Sattuma")) {
                 this.lisaaSattumaPisteet();
+                return true;
             } else if (mihin.equals("Yatzy")) {
                 this.lisaaYatzynPisteet();
+               return true;
+
             }
         }
+        
+        return false;
     }
 
+    /**
+     * Laskee taulukon pisteiden summan.
+     *
+     * @return Pisteiden summa.
+     */
     private int pisteidenSumma() {
         int summa = 0;
-        
+
         for (Integer piste : this.pisteet.values()) {
             if (piste == null) {
             } else {
                 summa = piste + summa;
             }
         }
-        
+
         return summa;
+    }
+
+    /**
+     * Yatzyssa saa 50 bonuspistettä, jos taulukon yläosan yhdistelmien, eli
+     * yhdistelmien ykkösistä kutosiin asti yhtenlaskettu pistepotti on
+     * vähintään 63. Metodi tarkistaa onko tämä totta.
+     *
+     * @return
+     */
+    private boolean onkoValisummaTarpeeksi() {
+
+        int ylasumma = this.pisteet.get("Ykkoset") + this.pisteet.get("Kakkoset") + this.pisteet.get("Kolmoset") + this.pisteet.get("Neloset")
+                + this.pisteet.get("Vitoset") + this.pisteet.get("Kutoset");
+
+        if (ylasumma >= 63) {
+            return true;
+        }
+
+        return false;
+
+
+    }
+
+    public int KerroLoppuPisteet() {
+        if (onkoValisummaTarpeeksi()) {
+            return 50 + pisteidenSumma();
+        } else {
+            return pisteidenSumma();
+        }
     }
 }
