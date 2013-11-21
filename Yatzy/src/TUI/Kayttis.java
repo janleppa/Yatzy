@@ -1,6 +1,5 @@
 package TUI;
 
-
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -10,9 +9,9 @@ import yatzy.Pelaaja;
 
 /**
  * Tekstikäyttöliittymä luokka.
+ *
  * @author Janne
  */
-
 public class Kayttis {
 
     /**
@@ -34,6 +33,31 @@ public class Kayttis {
         this.lukija = lukija;
     }
 
+    /**
+     * Metodi, joka käynnistää pelin. Ensin kysytään pelaajien määrä ja sen
+     * jälkeen pelataan kierokksia niin kauan kun pelaajille on tyhjiä paikkoja
+     * pistelistoissa.
+     */
+    public void run() {
+        System.out.println("Tervetuloa pelaamaan Yatzya!");
+
+        uusiPeli();
+
+        while (this.peli.jatkuukoPeli()) {
+            pelaaKierros();
+        }
+
+        pelinLopetus();
+
+    }
+
+    /**
+     * Kysytään käyttäjältä pelaajat ja pelaajien nimet. Metodi kysyy nimiä niin
+     * kauan kunnes käyttäjä syöttää tyhjän merkkijonon. Pelaajia täytyy olla
+     * vähintään kaksi ja korkeintaan viisi.
+     *
+     * @return ArrayList, joka sisältää pelaaja-olioita.
+     */
     public ArrayList<Pelaaja> kysyPelaajat() {
         ArrayList<Pelaaja> pelaajat = new ArrayList<Pelaaja>();
 
@@ -55,24 +79,13 @@ public class Kayttis {
         }
 
         return pelaajat;
+
+
     }
 
-    public void run() {
-        System.out.println("Tervetuloa pelaamaan Yatzya!");
-
-        ArrayList<Pelaaja> pelaajat = this.kysyPelaajat();
-
-        this.peli = new Yatzypeli(pelaajat);
-        this.peli.luoPisteTaulukotPelaajille();
-        
-        while(this.peli.jatkuukoPeli()) {
-        pelaaKierros();    
-        }
-        
-        pelinLopetus();
-        
-    }
-
+    /**
+     * Peliä pelataan yksi kierros, eli kaikki pelaajat saavat vuoron.
+     */
     private void pelaaKierros() {
         ArrayList<Pelaaja> pelaajat = this.peli.getPelaajaLista();
 
@@ -81,6 +94,12 @@ public class Kayttis {
         }
     }
 
+    /**
+     * Metodi kertoo mitä yhden pelaajan vuoron aikana tapahtuu. Pelaaja voi heittää noppia korkeintaan kolmesti, katsoa pistetaulukkoaan,
+     * aseta pisteitä taulukkoon tai valita noppia, joita haluaa lukita.
+     *
+     * @param pelaaja Pelaaja, jonka vuoro on.
+     */
     private void pelaajanVuoro(Pelaaja pelaaja) {
         Noppakasi kasi = this.peli.getNoppakasi();
         kasi.poistaKaikkiNoppaValinnat();
@@ -128,6 +147,10 @@ public class Kayttis {
         }
 
     }
+    
+    /**
+     * Apumetodi, joka tulostaa pelaajan mahdolliset toiminnot vuoron aikana.
+     */
 
     private void tulostaToimintovalikko() {
         System.out.println("Mitä haluat tehdä? Syötä komennon numero ilman pistettä.");
@@ -136,16 +159,26 @@ public class Kayttis {
         System.out.println("    3. Katso pistetaulukko.");
         System.out.println("    4. Aseta noppakäsi pistetaulukkoon.");
     }
+    
+    /**
+     * Lukee käyttäjän syötteen.
+     * @return  Merkkijono
+     */
 
     private String lueKayttajanKomento() {
         return this.lukija.nextLine();
     }
+    
+    /**
+     * Metodi kysyy pelaajalta nopat, jotka tämää haluaa valita. Jos noppa on jo valittu, sen valinta poistetaan. Nopista syötetään järjestysnumerot ja 0:n syöttäminen vahvistaa valinnan. 
+     * Jos pelaaja ei syötä kokonaislukua, metodi kertoo tästä.
+     */
 
     private void valitseNoppia() {
         Noppakasi kasi = this.peli.getNoppakasi();
 
         System.out.println("\nSyötä niiden noppien järjestysnumerot, jotka haluat valita. "
-                + "Voit poistaa valinnan antamalla jo valitun nopan järjestysnumero. "
+                + "Voit poistaa valinnan antamalla jo valitun nopan järjestysnumeron. "
                 + "Kun olet tehnyt haluamasi valinnat, syötä luku 0 vahvistaaksesi noppien valinta.");
 
         while (true) {
@@ -172,13 +205,19 @@ public class Kayttis {
         }
 
     }
+    
+    /**
+     * Asettaa pelaajan sen hetkisen noppakäden pistetaulukkoon. Pelaajalta kysytään mihin yhdistelmään nopat halutaan laittaa.
+     * Yhdistelmän nimi tulee kirjoittaa täsmälleen samoin kuin se mainitaan pistetaulukossa.
+     * @param pelaaja Pelaaja, jonka pisteitä asetetaan.
+     */
 
     private void asetaKasiTaulukkoon(Pelaaja pelaaja) {
         System.out.println("Pistetaulukkosi:");
         System.out.println(pelaaja.getTaulukko().toString());
         System.out.println("Mihin kohtaan haluat sijoittaa pisteesi?\n"
                 + "Syötä sen kohdan nimi täsmälleen samoin kun se lukee taulukossa.");
-        
+
         String minne = this.lueKayttajanKomento();
         pelaaja.getTaulukko().lisaaPisteet(minne);
         System.out.println("Pistetaulukkosi:");
@@ -198,5 +237,12 @@ public class Kayttis {
 
     private void pelinLopetus() {
         System.out.println("\nPeli loppui!");
+    }
+
+    private void uusiPeli() {
+        ArrayList<Pelaaja> pelaajat = this.kysyPelaajat();
+
+        this.peli = new Yatzypeli(pelaajat);
+        this.peli.luoPisteTaulukotPelaajille();
     }
 }
