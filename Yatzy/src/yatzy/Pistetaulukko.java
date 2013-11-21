@@ -5,6 +5,12 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import logiikka.Pistelaskuri;
 
+/**
+ * Yatzy-pelissä pelaajat keräävät pisteitä erilaisista noppayhdistelmistä ja kirjaavat niitä ylös. Pistetaulukko luokka mallintaa taulukko,
+ * johon pisteet merkitään.
+ * @author Janne
+ */
+
 public class Pistetaulukko {
 
     /**
@@ -121,7 +127,7 @@ public class Pistetaulukko {
      * <code>montaTyhjaa</code> luomaan sanan pituudesta riippuva määrä
      * välilyöntejä, jotta taulukko näyttäisi siistiltä.
      *
-     * @return
+     * @return taulukon merkkijonoesitys
      */
     @Override
     public String toString() {

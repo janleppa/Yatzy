@@ -1,11 +1,17 @@
 package TUI;
 
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import logiikka.Yatzypeli;
 import yatzy.Noppakasi;
 import yatzy.Pelaaja;
+
+/**
+ * Tekstikäyttöliittymä luokka.
+ * @author Janne
+ */
 
 public class Kayttis {
 
@@ -191,6 +197,6 @@ public class Kayttis {
     }
 
     private void pelinLopetus() {
-        System.out.println("Peli loppui!");
+        System.out.println("\nPeli loppui!");
     }
 }

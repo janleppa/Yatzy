@@ -3,6 +3,11 @@ package yatzy;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * Yatzy-pelissä heitetään viittä noppaa ja tämä luokka mallintaa tällaista "noppakättä". Noppakäsi on käytännössä lista noppa-olioista.
+ * @author Janne
+ */
+
 public class Noppakasi {
 
     /**
@@ -67,7 +72,7 @@ public class Noppakasi {
      * Palauttaa käden merkkijonoesityksen, jossa näkyy noppien silmäluvut
      * pilkuin erotettuina. Nopat esitetään suuruusjärjestyksessä.
      *
-     * @return
+     * @return Merkkijonoesitys nopille
      */
     public String toString() {
         this.jarjestaKasi();

@@ -6,6 +6,11 @@ import yatzy.Noppakasi;
 import yatzy.Pelaaja;
 import yatzy.Pistetaulukko;
 
+/**
+ * Yatzy-peliä kokonaisuutena mallintava luokka. TÄmä luokka kerää pelin osat yhteen ja vuorovaikuttaa käyttiksen kanssa.
+ * @author Janne
+ */
+
 public class Yatzypeli {
     /**
      * Pelaajat sisältävä lista. 

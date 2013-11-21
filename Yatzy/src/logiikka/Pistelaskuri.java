@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import yatzy.Noppa;
 import yatzy.Noppakasi;
 
+/**
+ * Pistelaskuri luokka saa parametrina noppakäden, josta se laskee noppayhdistelmien pisteitä. Avuksi luodaan Kadentarkastaja-olio,
+ * jonka avulla pistelasku yksinkertaistuu, koska laskuri tietää mikä yhdistelmä kädestä löytyy tai ei löydy.
+ * @author Janne
+ */
+
 public class Pistelaskuri {
 
     /**

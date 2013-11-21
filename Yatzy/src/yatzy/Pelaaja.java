@@ -1,6 +1,12 @@
 
 package yatzy;
 
+/**
+ * Pelaaja luokka kuvaa pelin pelaajia. Pelaajilla on nimi ja pistetaulukko. Pistetaulukko ei luoda pelaajan luonnin yhteydessä,
+ * vaan se liitetään pelaajille myöhemmin.
+ * @author Janne
+ */
+
 public class Pelaaja {
     /**
      *Taulukko, johon pelaajan pisteet kirjataan.
@@ -13,8 +19,7 @@ public class Pelaaja {
     
     /**
      * Konstruktorille annetaan parametrina pelaajan nimi ja pistetaulukko.
-     * @param nimi Pelaajan nimi.
-     * @param pisteet Pistetaulukko. 
+     * @param nimi Pelaajan nimi. 
      */
     public Pelaaja(String nimi) {
         this.nimi = nimi;

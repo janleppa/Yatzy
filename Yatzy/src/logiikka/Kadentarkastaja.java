@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import yatzy.Noppa;
 import yatzy.Noppakasi;
 
+/**
+ * Luokka, joka saa parametrina oliomuttujaksi noppakäden. Luokan avulla voidaan tarkistaa löytyykö noppakädestä haluttuja
+ * noppayhdistelmiä.
+ * @author Janne
+ */
+
 public class Kadentarkastaja {
     /**
      * Tarkastelun kohteena oleva noppakäsi.

@@ -2,6 +2,10 @@ package yatzy;
 
 import java.util.Random;
 
+/**
+ * Luokka, jolla mallinetaan pelissä käytettäviä noppia.
+ * @author Janne
+ */
 public class Noppa implements Comparable<Noppa> {
 
     /**
