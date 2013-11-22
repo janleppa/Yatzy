@@ -98,9 +98,28 @@ public class Yatzypeli {
         tulokset = tulokset + "Lopullinen pistetilanne: \n";
         
         for(Pelaaja pelaaja : this.pelaajat) {
-            tulokset = tulokset + pelaaja.getNimi() + "     " + pelaaja.Kerropisteet() + "\n";
+            tulokset = tulokset + pelaaja.getNimi() + montaTyhjaa(25-pelaaja.getNimi().length()) + pelaaja.Kerropisteet() + "\n";
         }
 
         return tulokset;
+    }
+    
+    /**
+     * Apumetodi, jolla luodaan haluttu määrä välilyöntejä.
+     *
+     * @param n Kuinka monta välilyöntiä halutaan.
+     * @return Merkkijono, joka sisältää välilyöntejä.
+     */
+    private String montaTyhjaa(int n) {
+        String merkki = "";
+        int iii = 1;
+
+        while (iii <= n) {
+            merkki = merkki + " ";
+            iii++;
+        }
+
+        return merkki;
+
     }
 }

@@ -35,7 +35,7 @@ public class Kayttis {
 
     /**
      * Metodi, joka käynnistää pelin. Ensin kysytään pelaajien määrä ja sen
-     * jälkeen pelataan kierokksia niin kauan kun pelaajille on tyhjiä paikkoja
+     * jälkeen pelataan kieroksia niin kauan kun pelaajilla on tyhjiä paikkoja
      * pistelistoissa.
      */
     public void run() {
@@ -68,6 +68,8 @@ public class Kayttis {
             String nimi = this.lukija.nextLine();
             if (nimi.isEmpty()) {
                 break;
+            } else if (nimi.length() > 18) {
+                System.out.println("Lyhyempi nimi, kiitos.");
             } else {
                 pelaajat.add(new Pelaaja(nimi));
             }
@@ -96,7 +98,7 @@ public class Kayttis {
 
     /**
      * Metodi kertoo mitä yhden pelaajan vuoron aikana tapahtuu. Pelaaja voi
-     * heittää noppia korkeintaan kolmesti, katsoa pistetaulukkoaan, aseta
+     * heittää noppia korkeintaan kolmesti, katsoa pistetaulukkoaan, asettaa
      * pisteitä taulukkoon tai valita noppia, joita haluaa lukita.
      *
      * @param pelaaja Pelaaja, jonka vuoro on.
@@ -179,15 +181,17 @@ public class Kayttis {
         Noppakasi kasi = this.peli.getNoppakasi();
 
         System.out.println("\nSyötä yksi kerrallaan niiden noppien järjestysnumerot, jotka haluat valita. "
-                + "Voit poistaa valinnan antamalla jo valitun nopan järjestysnumeron. "
-                + "Kun olet tehnyt haluamasi valinnat, syötä luku 0 vahvistaaksesi noppien valinta.");
+                + "\nVoit poistaa valinnan antamalla jo valitun nopan järjestysnumeron. "
+                + "\nKun olet tehnyt haluamasi valinnat, syötä luku 0 palataksesi valikkoon.");
 
         while (true) {
             System.out.print("Nopan numero: ");
+
             try {
                 int luku = this.lukija.nextInt();
 
                 if (luku == 0) {
+                    System.out.println("Nopat valittu.");
                     break;
                 } else if (luku < 1 || luku > 6) {
                     System.out.println("Syötä luku väliltä 1-5!");
@@ -200,18 +204,22 @@ public class Kayttis {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Et tainnut syöttää kokonaislukua.");
-                valitseNoppia();
+                break;
+
             }
 
         }
+
+        System.out.println("Palataan valikkoon.\n");
+        lueKayttajanKomento();
 
     }
 
     /**
      * Asettaa pelaajan sen hetkisen noppakäden pistetaulukkoon. Pelaajalta
      * kysytään mihin yhdistelmään nopat halutaan laittaa. Yhdistelmän nimi
-     * tulee kirjoittaa täsmälleen samoin kuin se mainitaan pistetaulukossa. Jos taulukosta ei löydy pelaajan syötettä vastaavaa
-     * sanaa kysytään uudelleen.
+     * tulee kirjoittaa täsmälleen samoin kuin se mainitaan pistetaulukossa. Jos
+     * taulukosta ei löydy pelaajan syötettä vastaavaa sanaa kysytään uudelleen.
      *
      * @param pelaaja Pelaaja, jonka pisteitä asetetaan.
      */
