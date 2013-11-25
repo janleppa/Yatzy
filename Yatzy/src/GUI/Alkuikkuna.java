@@ -4,17 +4,25 @@
  */
 package GUI;
 
+import java.util.ArrayList;
+import javax.swing.JTextField;
+import logiikka.Yatzypeli;
+import yatzy.Pelaaja;
+
 /**
  *
  * @author janne_000
  */
 public class Alkuikkuna extends javax.swing.JFrame {
 
+    private ArrayList<JTextField> kentat;
+
     /**
      * Creates new form Alkuikkuna
      */
     public Alkuikkuna() {
         initComponents();
+        this.listaaPelaajaKentat();
     }
 
     /**
@@ -26,21 +34,172 @@ public class Alkuikkuna extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pelaaNappi = new javax.swing.JButton();
+        lopetaNappi = new javax.swing.JButton();
+        pelaaja1 = new javax.swing.JTextField();
+        pelaaja2 = new javax.swing.JTextField();
+        pelaaja3 = new javax.swing.JTextField();
+        pelaaja4 = new javax.swing.JTextField();
+        pelaaja5 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Yatzy");
+
+        pelaaNappi.setText("Pelaa!");
+        pelaaNappi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pelaaNappiActionPerformed(evt);
+            }
+        });
+
+        lopetaNappi.setText("Lopeta");
+        lopetaNappi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lopetaNappiActionPerformed(evt);
+            }
+        });
+
+        pelaaja1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pelaaja1ActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Pelaaja 1.");
+        jLabel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel3.setText("Pelaaja 2");
+        jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel4.setText("Pelaaja 3");
+        jLabel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel5.setText("Pelaaja 4");
+        jLabel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel6.setText("Pelaaja 5");
+        jLabel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jTextArea1.setEditable(false);
+        jTextArea1.setBackground(new java.awt.Color(240, 240, 240));
+        jTextArea1.setColumns(35);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Tervetuloa pelaamaan Yatzya! \nPäästäksesi pelaamaan, kirjoita alla \noleviin kenttiin pelaajien nimet.\nPelissä täytyy olla \nvähintään kaksi henkilöä!");
+        jTextArea1.setAutoscrolls(false);
+        jTextArea1.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        jTextArea1.setOpaque(false);
+        jScrollPane1.setViewportView(jTextArea1);
+        jTextArea1.getAccessibleContext().setAccessibleDescription("");
+        jTextArea1.getAccessibleContext().setAccessibleParent(null);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lopetaNappi)
+                        .addGap(188, 188, 188)
+                        .addComponent(pelaaNappi))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel2))
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(pelaaja1)
+                            .addComponent(pelaaja2)
+                            .addComponent(pelaaja3)
+                            .addComponent(pelaaja4)
+                            .addComponent(pelaaja5, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                        .addGap(141, 141, 141))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel3)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(pelaaja1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel2))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(pelaaja2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
+                                .addComponent(pelaaja3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel4))
+                        .addGap(18, 18, 18)
+                        .addComponent(pelaaja4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel5))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(pelaaja5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lopetaNappi)
+                    .addComponent(pelaaNappi))
+                .addGap(28, 28, 28))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void pelaaNappiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pelaaNappiActionPerformed
+        ArrayList<Pelaaja> pelaajat = new ArrayList<Pelaaja>();
+
+        for (JTextField kentta : this.kentat) {
+            if (kentta.getText().equals(null) || !kentta.getText().isEmpty()) {
+                pelaajat.add(new Pelaaja(kentta.getText()));
+            }
+        }
+
+        if (pelaajat.size() >= 2) {
+            new PeliIkkuna(new Yatzypeli(pelaajat));
+
+            setVisible(false);
+            dispose();
+        }
+
+
+
+
+
+
+
+
+    }//GEN-LAST:event_pelaaNappiActionPerformed
+
+    private void pelaaja1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pelaaja1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pelaaja1ActionPerformed
+
+    private void lopetaNappiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lopetaNappiActionPerformed
+        setVisible(false);
+        dispose();
+
+    }//GEN-LAST:event_lopetaNappiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -76,6 +235,32 @@ public class Alkuikkuna extends javax.swing.JFrame {
             }
         });
     }
+
+    private void listaaPelaajaKentat() {
+        ArrayList<JTextField> kentat = new ArrayList<JTextField>();
+
+        kentat.add(pelaaja1);
+        kentat.add(pelaaja2);
+        kentat.add(pelaaja3);
+        kentat.add(pelaaja4);
+        kentat.add(pelaaja5);
+
+        this.kentat = kentat;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JButton lopetaNappi;
+    private javax.swing.JButton pelaaNappi;
+    private javax.swing.JTextField pelaaja1;
+    private javax.swing.JTextField pelaaja2;
+    private javax.swing.JTextField pelaaja3;
+    private javax.swing.JTextField pelaaja4;
+    private javax.swing.JTextField pelaaja5;
     // End of variables declaration//GEN-END:variables
 }

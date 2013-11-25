@@ -325,6 +325,11 @@ public class Pistetaulukko {
 
 
     }
+    
+    /**
+     * Metodi kertoo pelaajan lopulliset pisteet.
+     * @return loppupisteet
+     */
 
     public int KerroLoppuPisteet() {
         if (onkoValisummaTarpeeksi()) {
