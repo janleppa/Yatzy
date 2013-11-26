@@ -5,63 +5,70 @@
 package GUI;
 
 import java.awt.event.ItemEvent;
+import java.util.ArrayList;
+import javax.swing.JScrollPane;
 import logiikka.Yatzypeli;
 import yatzy.Noppakasi;
+import yatzy.Pelaaja;
 
 public class PeliIkkuna extends javax.swing.JFrame {
-    private int heitot=1;
+
+    private int heitot = 1;
     private Yatzypeli peli;
+    private Pelaaja pelaaja;
+    private boolean onkoPisteetAsetettu = false;
+    private int PelaajanNro = 0;
+
     /**
      * Creates new form PeliIkkuna
      */
     public PeliIkkuna(Yatzypeli peli) {
         initComponents();
         setVisible(true);
+
         this.peli = peli;
-        
+
         aloitaPeli();
-        
-        String jee = this.peli.getPelaajaLista().get(0).getTaulukko().toString();
-        pistetaulukko.setText(jee);
-        
-        
-        
-        
-        
+
+        pelaa(this.peli.getPelaajaLista().get(this.PelaajanNro));
     }
-    
+
+    public void pelaa(Pelaaja pelaaja) {
+        this.pelaaja = pelaaja;
+        this.onkoPisteetAsetettu = false;
+        this.heitot = 1;
+        this.pistetaulukko.setText(this.pelaaja.getTaulukko().toStringGraafiselle());
+    }
+
     private void aloitaPeli() {
-        
+
         this.peli.luoPisteTaulukotPelaajille();
         this.peli.getNoppakasi().heitaValitsemattomat();
         paivitaNopat();
-        
+
     }
-    
+
     public void paivitaNopat() {
-        Noppakasi kasi = this.peli.getNoppakasi(); 
+        Noppakasi kasi = this.peli.getNoppakasi();
         int eka = kasi.annaNopanNSilmaluku(1);
         int toka = kasi.annaNopanNSilmaluku(2);
         int kolmas = kasi.annaNopanNSilmaluku(3);
         int neljas = kasi.annaNopanNSilmaluku(4);
         int viides = kasi.annaNopanNSilmaluku(5);
-        
+
         String ekaKuva = "/GUI/kuvat/noppa" + String.valueOf(eka) + ".jpg";
         String tokaKuva = "/GUI/kuvat/noppa" + String.valueOf(toka) + ".jpg";
         String kolmasKuva = "/GUI/kuvat/noppa" + String.valueOf(kolmas) + ".jpg";
         String neljasKuva = "/GUI/kuvat/noppa" + String.valueOf(neljas) + ".jpg";
         String viidesKuva = "/GUI/kuvat/noppa" + String.valueOf(viides) + ".jpg";
-        
+
         noppa1.setIcon(new javax.swing.ImageIcon(getClass().getResource(ekaKuva)));
         noppa2.setIcon(new javax.swing.ImageIcon(getClass().getResource(tokaKuva)));
         noppa3.setIcon(new javax.swing.ImageIcon(getClass().getResource(kolmasKuva)));
         noppa4.setIcon(new javax.swing.ImageIcon(getClass().getResource(neljasKuva)));
         noppa5.setIcon(new javax.swing.ImageIcon(getClass().getResource(viidesKuva)));
-        
+
     }
-    
-    
-         
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -72,6 +79,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pisteNapit = new javax.swing.ButtonGroup();
         nopanValinta1 = new javax.swing.JCheckBox();
         nopanValinta2 = new javax.swing.JCheckBox();
         nopanValinta3 = new javax.swing.JCheckBox();
@@ -84,8 +92,6 @@ public class PeliIkkuna extends javax.swing.JFrame {
         noppa3 = new javax.swing.JLabel();
         noppa4 = new javax.swing.JLabel();
         noppa5 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        pistetaulukko = new javax.swing.JTextArea();
         ykkoset = new javax.swing.JButton();
         kakkoset = new javax.swing.JButton();
         kolmoset = new javax.swing.JButton();
@@ -101,6 +107,9 @@ public class PeliIkkuna extends javax.swing.JFrame {
         tayskasi = new javax.swing.JButton();
         sattuma = new javax.swing.JButton();
         yatzy = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        pistetaulukko = new javax.swing.JTextArea();
+        seuraavaPelaaja = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Yatzy");
@@ -157,6 +166,8 @@ public class PeliIkkuna extends javax.swing.JFrame {
             }
         });
 
+        pelaajanNimi.setEditable(false);
+
         noppa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/kuvat/noppa3.jpg"))); // NOI18N
 
         noppa2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/kuvat/noppa2.jpg"))); // NOI18N
@@ -167,39 +178,72 @@ public class PeliIkkuna extends javax.swing.JFrame {
 
         noppa5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/kuvat/noppa6.jpg"))); // NOI18N
 
-        pistetaulukko.setColumns(20);
-        pistetaulukko.setRows(5);
-        jScrollPane1.setViewportView(pistetaulukko);
-
         ykkoset.setText("Ykköset");
+        pisteNapit.add(ykkoset);
+        ykkoset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ykkosetActionPerformed(evt);
+            }
+        });
 
         kakkoset.setText("Kakkoset");
+        pisteNapit.add(kakkoset);
 
         kolmoset.setText("Kolmoset");
+        pisteNapit.add(kolmoset);
 
         neloset.setText("Neloset");
+        pisteNapit.add(neloset);
 
         vitoset.setText("Vitoset");
+        pisteNapit.add(vitoset);
 
         kutoset.setText("Kutoset");
+        pisteNapit.add(kutoset);
 
         pari.setText("Pari");
+        pisteNapit.add(pari);
 
         kaksiParia.setText("Kaksi paria");
+        pisteNapit.add(kaksiParia);
 
         kolmeSamaa.setText("Kolme samaa");
+        pisteNapit.add(kolmeSamaa);
 
         neljaSamaa.setText("Neljä samaa");
+        pisteNapit.add(neljaSamaa);
 
         pieniSuora.setText("Pieni suora");
+        pisteNapit.add(pieniSuora);
 
         isoSuora.setText("Iso suora");
+        pisteNapit.add(isoSuora);
 
         tayskasi.setText("Täyskäsi");
+        pisteNapit.add(tayskasi);
 
         sattuma.setText("Sattuma");
+        pisteNapit.add(sattuma);
 
         yatzy.setText("Yatzy");
+        pisteNapit.add(yatzy);
+
+        pistetaulukko.setEditable(false);
+        pistetaulukko.setColumns(21);
+        pistetaulukko.setLineWrap(true);
+        pistetaulukko.setRows(30);
+        pistetaulukko.setTabSize(2);
+        pistetaulukko.setWrapStyleWord(true);
+        pistetaulukko.setMaximumSize(new java.awt.Dimension(300, 500));
+        pistetaulukko.setMinimumSize(new java.awt.Dimension(300, 500));
+        jScrollPane2.setViewportView(pistetaulukko);
+
+        seuraavaPelaaja.setText("Seuraava pelaaja");
+        seuraavaPelaaja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seuraavaPelaajaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -208,10 +252,12 @@ public class PeliIkkuna extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pelaajanNimi, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(pelaajanNimi, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(kolmeSamaa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(kaksiParia, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -228,10 +274,9 @@ public class PeliIkkuna extends javax.swing.JFrame {
                             .addComponent(tayskasi, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(sattuma, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(yatzy, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(66, 66, 66)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(heitaNopat)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(noppa2)
@@ -241,7 +286,10 @@ public class PeliIkkuna extends javax.swing.JFrame {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(nopanValinta3)
                                         .addComponent(nopanValinta2)
-                                        .addComponent(nopanValinta1))))
+                                        .addComponent(nopanValinta1)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(seuraavaPelaaja)
+                                    .addComponent(heitaNopat)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(noppa4)
@@ -249,8 +297,8 @@ public class PeliIkkuna extends javax.swing.JFrame {
                                 .addGap(48, 48, 48)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(nopanValinta5)
-                                    .addComponent(nopanValinta4))))))
-                .addContainerGap(23, Short.MAX_VALUE))
+                                    .addComponent(nopanValinta4))))
+                        .addGap(25, 25, 25))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,14 +306,35 @@ public class PeliIkkuna extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addComponent(pelaajanNimi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(ykkoset)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(kakkoset)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(ykkoset)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(kakkoset)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(kolmoset)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(neloset)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(vitoset)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(kutoset)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(pari)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(kaksiParia)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(kolmeSamaa)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(neljaSamaa)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(pieniSuora)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(isoSuora)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tayskasi))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(nopanValinta1)
@@ -287,34 +356,16 @@ public class PeliIkkuna extends javax.swing.JFrame {
                                     .addComponent(nopanValinta5)
                                     .addComponent(noppa5)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(kolmoset)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(neloset)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(vitoset)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(kutoset)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pari)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(kaksiParia)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(kolmeSamaa)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(neljaSamaa)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pieniSuora)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(isoSuora)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tayskasi)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(sattuma)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(yatzy)
-                                    .addComponent(heitaNopat))))))
-                .addContainerGap(83, Short.MAX_VALUE))
+                                .addGap(348, 348, 348)
+                                .addComponent(heitaNopat)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(sattuma)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(yatzy)
+                            .addComponent(seuraavaPelaaja)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         pack();
@@ -334,8 +385,8 @@ public class PeliIkkuna extends javax.swing.JFrame {
 
     private void nopanValinta1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_nopanValinta1ItemStateChanged
         Noppakasi kasi = this.peli.getNoppakasi();
-        
-        if(evt.getStateChange() == ItemEvent.SELECTED) {
+
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
             kasi.valitseNoppa(1);
         } else {
             kasi.poistaValintaNopalta(1);
@@ -344,8 +395,8 @@ public class PeliIkkuna extends javax.swing.JFrame {
 
     private void nopanValinta2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_nopanValinta2ItemStateChanged
         Noppakasi kasi = this.peli.getNoppakasi();
-        
-        if(evt.getStateChange() == ItemEvent.SELECTED) {
+
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
             kasi.valitseNoppa(2);
         } else {
             kasi.poistaValintaNopalta(2);
@@ -354,8 +405,8 @@ public class PeliIkkuna extends javax.swing.JFrame {
 
     private void nopanValinta3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_nopanValinta3ItemStateChanged
         Noppakasi kasi = this.peli.getNoppakasi();
-        
-        if(evt.getStateChange() == ItemEvent.SELECTED) {
+
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
             kasi.valitseNoppa(3);
         } else {
             kasi.poistaValintaNopalta(3);
@@ -364,8 +415,8 @@ public class PeliIkkuna extends javax.swing.JFrame {
 
     private void nopanValinta4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_nopanValinta4ItemStateChanged
         Noppakasi kasi = this.peli.getNoppakasi();
-        
-        if(evt.getStateChange() == ItemEvent.SELECTED) {
+
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
             kasi.valitseNoppa(4);
         } else {
             kasi.poistaValintaNopalta(4);
@@ -374,8 +425,8 @@ public class PeliIkkuna extends javax.swing.JFrame {
 
     private void nopanValinta5ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_nopanValinta5ItemStateChanged
         Noppakasi kasi = this.peli.getNoppakasi();
-        
-        if(evt.getStateChange() == ItemEvent.SELECTED) {
+
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
             kasi.valitseNoppa(5);
         } else {
             kasi.poistaValintaNopalta(5);
@@ -383,23 +434,36 @@ public class PeliIkkuna extends javax.swing.JFrame {
     }//GEN-LAST:event_nopanValinta5ItemStateChanged
 
     private void heitaNopatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_heitaNopatActionPerformed
-        if(this.heitot<=3) {
+        if (this.heitot <= 3) {
             this.peli.getNoppakasi().heitaValitsemattomat();
+            heitot++;
             paivitaNopat();
-            
-            
+
+
         }
     }//GEN-LAST:event_heitaNopatActionPerformed
 
+    private void ykkosetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ykkosetActionPerformed
+        pelaaja.getTaulukko().lisaaPisteet("Ykkoset");
+        this.onkoPisteetAsetettu = true;
+    }//GEN-LAST:event_ykkosetActionPerformed
+
+    private void seuraavaPelaajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seuraavaPelaajaActionPerformed
+        if (!this.peli.jatkuukoPeli()) {
+        } else if (!this.onkoPisteetAsetettu) {
+        } else {
+            int seuraava = seuuravanNumero();
+            this.pelaaja = this.peli.getPelaajaLista().get(seuraava);
+            pelaa(this.pelaaja);
+        }
+    }//GEN-LAST:event_seuraavaPelaajaActionPerformed
     /**
      * @param args the command line arguments
      */
-    
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton heitaNopat;
     private javax.swing.JButton isoSuora;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton kakkoset;
     private javax.swing.JButton kaksiParia;
     private javax.swing.JButton kolmeSamaa;
@@ -420,11 +484,21 @@ public class PeliIkkuna extends javax.swing.JFrame {
     private javax.swing.JButton pari;
     private javax.swing.JTextField pelaajanNimi;
     private javax.swing.JButton pieniSuora;
+    private javax.swing.ButtonGroup pisteNapit;
     private javax.swing.JTextArea pistetaulukko;
     private javax.swing.JButton sattuma;
+    private javax.swing.JButton seuraavaPelaaja;
     private javax.swing.JButton tayskasi;
     private javax.swing.JButton vitoset;
     private javax.swing.JButton yatzy;
     private javax.swing.JButton ykkoset;
     // End of variables declaration//GEN-END:variables
+
+    private int seuuravanNumero() {
+        int seuraava = this.PelaajanNro + 1;
+        if (this.peli.getPelaajaLista().get(seuraava) == null) {
+            return 0;
+        }
+        return seuraava;
+    }
 }

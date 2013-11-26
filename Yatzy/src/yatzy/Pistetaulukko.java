@@ -338,4 +338,25 @@ public class Pistetaulukko {
             return pisteidenSumma();
         }
     }
+    
+     public String toStringGraafiselle() {
+        String taulukko = "";
+
+
+        int summa = pisteidenSumma();
+
+
+
+        for (String alkio : this.pisteet.keySet()) {
+            if (this.pisteet.get(alkio) == null) {
+                taulukko = taulukko + alkio + this.montaTyhjaa(11 - alkio.length()) + "         " + "x\n\n";
+            } else {
+                taulukko = taulukko + alkio + this.montaTyhjaa(11 - alkio.length()) + "         " + this.pisteet.get(alkio) + "\n\n";
+            }
+        }
+
+        taulukko = taulukko + "Yhteissumma" + "         " + summa;
+
+        return taulukko;
+    }
 }
