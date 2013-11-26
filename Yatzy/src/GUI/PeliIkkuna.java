@@ -18,6 +18,10 @@ public class PeliIkkuna extends javax.swing.JFrame {
         initComponents();
         setVisible(true);
         this.peli = peli;
+        this.peli.getNoppakasi().heitaValitsemattomat();
+        paivitaNopat();
+        
+        
         
         
         
@@ -279,7 +283,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
         if(this.heitot<=3) {
             this.peli.getNoppakasi().heitaValitsemattomat();
             paivitaNopat();
-            this.heitot++;
+            
             
         }
     }//GEN-LAST:event_heitaNopatActionPerformed
