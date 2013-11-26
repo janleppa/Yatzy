@@ -4,19 +4,49 @@
  */
 package GUI;
 
+import java.awt.event.ItemEvent;
 import logiikka.Yatzypeli;
+import yatzy.Noppakasi;
 
 public class PeliIkkuna extends javax.swing.JFrame {
-    
+    private int heitot=1;
     private Yatzypeli peli;
     /**
      * Creates new form PeliIkkuna
      */
     public PeliIkkuna(Yatzypeli peli) {
         initComponents();
-        this.peli = peli;
         setVisible(true);
+        this.peli = peli;
+        
+        
+        
     }
+    
+    public void paivitaNopat() {
+        Noppakasi kasi = this.peli.getNoppakasi(); 
+        int eka = kasi.annaNopanNSilmaluku(1);
+        int toka = kasi.annaNopanNSilmaluku(2);
+        int kolmas = kasi.annaNopanNSilmaluku(3);
+        int neljas = kasi.annaNopanNSilmaluku(4);
+        int viides = kasi.annaNopanNSilmaluku(5);
+        
+        String ekaKuva = "/GUI/kuvat/noppa" + String.valueOf(eka) + ".jpg";
+        String tokaKuva = "/GUI/kuvat/noppa" + String.valueOf(toka) + ".jpg";
+        String kolmasKuva = "/GUI/kuvat/noppa" + String.valueOf(kolmas) + ".jpg";
+        String neljasKuva = "/GUI/kuvat/noppa" + String.valueOf(neljas) + ".jpg";
+        String viidesKuva = "/GUI/kuvat/noppa" + String.valueOf(viides) + ".jpg";
+        
+        noppa1.setIcon(new javax.swing.ImageIcon(getClass().getResource(ekaKuva)));
+        noppa2.setIcon(new javax.swing.ImageIcon(getClass().getResource(tokaKuva)));
+        noppa3.setIcon(new javax.swing.ImageIcon(getClass().getResource(kolmasKuva)));
+        noppa4.setIcon(new javax.swing.ImageIcon(getClass().getResource(neljasKuva)));
+        noppa5.setIcon(new javax.swing.ImageIcon(getClass().getResource(viidesKuva)));
+        
+    }
+    
+    
+         
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,31 +57,232 @@ public class PeliIkkuna extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        nopanValinta1 = new javax.swing.JCheckBox();
+        nopanValinta2 = new javax.swing.JCheckBox();
+        nopanValinta3 = new javax.swing.JCheckBox();
+        nopanValinta4 = new javax.swing.JCheckBox();
+        nopanValinta5 = new javax.swing.JCheckBox();
+        heitaNopat = new javax.swing.JButton();
+        pelaajanNimi = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Pistetaulukko = new javax.swing.JTextPane();
+        noppa1 = new javax.swing.JLabel();
+        noppa2 = new javax.swing.JLabel();
+        noppa3 = new javax.swing.JLabel();
+        noppa4 = new javax.swing.JLabel();
+        noppa5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Yatzy");
 
-        jButton1.setText("jButton1");
+        nopanValinta1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                nopanValinta1ItemStateChanged(evt);
+            }
+        });
+
+        nopanValinta2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                nopanValinta2ItemStateChanged(evt);
+            }
+        });
+        nopanValinta2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nopanValinta2ActionPerformed(evt);
+            }
+        });
+
+        nopanValinta3.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                nopanValinta3ItemStateChanged(evt);
+            }
+        });
+        nopanValinta3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nopanValinta3ActionPerformed(evt);
+            }
+        });
+
+        nopanValinta4.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                nopanValinta4ItemStateChanged(evt);
+            }
+        });
+        nopanValinta4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nopanValinta4ActionPerformed(evt);
+            }
+        });
+
+        nopanValinta5.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                nopanValinta5ItemStateChanged(evt);
+            }
+        });
+
+        heitaNopat.setText("Heitä nopat!");
+        heitaNopat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                heitaNopatActionPerformed(evt);
+            }
+        });
+
+        jScrollPane2.setViewportView(Pistetaulukko);
+
+        noppa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/kuvat/noppa3.jpg"))); // NOI18N
+
+        noppa2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/kuvat/noppa2.jpg"))); // NOI18N
+
+        noppa3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/kuvat/noppa3.jpg"))); // NOI18N
+
+        noppa4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/kuvat/noppa5.jpg"))); // NOI18N
+
+        noppa5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/kuvat/noppa6.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(154, 154, 154)
-                .addComponent(jButton1)
-                .addContainerGap(301, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(pelaajanNimi, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 264, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(heitaNopat)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(noppa2)
+                                        .addComponent(noppa3)
+                                        .addComponent(noppa1))
+                                    .addGap(48, 48, 48)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(nopanValinta3)
+                                        .addComponent(nopanValinta2)
+                                        .addComponent(nopanValinta1))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(noppa4)
+                                    .addComponent(noppa5))
+                                .addGap(48, 48, 48)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nopanValinta5)
+                                    .addComponent(nopanValinta4))))
+                        .addGap(39, 39, 39))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(123, 123, 123)
-                .addComponent(jButton1)
-                .addContainerGap(352, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(nopanValinta1)
+                            .addComponent(noppa1))
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(noppa2)
+                            .addComponent(nopanValinta2))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(noppa3)
+                            .addComponent(nopanValinta3))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(nopanValinta4)
+                            .addComponent(noppa4))
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(nopanValinta5)
+                            .addComponent(noppa5))
+                        .addGap(55, 55, 55)
+                        .addComponent(heitaNopat))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(pelaajanNimi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void nopanValinta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nopanValinta2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nopanValinta2ActionPerformed
+
+    private void nopanValinta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nopanValinta3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nopanValinta3ActionPerformed
+
+    private void nopanValinta4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nopanValinta4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nopanValinta4ActionPerformed
+
+    private void nopanValinta1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_nopanValinta1ItemStateChanged
+        Noppakasi kasi = this.peli.getNoppakasi();
+        
+        if(evt.getStateChange() == ItemEvent.SELECTED) {
+            kasi.valitseNoppa(1);
+        } else {
+            kasi.poistaValintaNopalta(1);
+        }
+    }//GEN-LAST:event_nopanValinta1ItemStateChanged
+
+    private void nopanValinta2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_nopanValinta2ItemStateChanged
+        Noppakasi kasi = this.peli.getNoppakasi();
+        
+        if(evt.getStateChange() == ItemEvent.SELECTED) {
+            kasi.valitseNoppa(2);
+        } else {
+            kasi.poistaValintaNopalta(2);
+        }
+    }//GEN-LAST:event_nopanValinta2ItemStateChanged
+
+    private void nopanValinta3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_nopanValinta3ItemStateChanged
+        Noppakasi kasi = this.peli.getNoppakasi();
+        
+        if(evt.getStateChange() == ItemEvent.SELECTED) {
+            kasi.valitseNoppa(3);
+        } else {
+            kasi.poistaValintaNopalta(3);
+        }
+    }//GEN-LAST:event_nopanValinta3ItemStateChanged
+
+    private void nopanValinta4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_nopanValinta4ItemStateChanged
+        Noppakasi kasi = this.peli.getNoppakasi();
+        
+        if(evt.getStateChange() == ItemEvent.SELECTED) {
+            kasi.valitseNoppa(4);
+        } else {
+            kasi.poistaValintaNopalta(4);
+        }
+    }//GEN-LAST:event_nopanValinta4ItemStateChanged
+
+    private void nopanValinta5ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_nopanValinta5ItemStateChanged
+        Noppakasi kasi = this.peli.getNoppakasi();
+        
+        if(evt.getStateChange() == ItemEvent.SELECTED) {
+            kasi.valitseNoppa(5);
+        } else {
+            kasi.poistaValintaNopalta(5);
+        }
+    }//GEN-LAST:event_nopanValinta5ItemStateChanged
+
+    private void heitaNopatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_heitaNopatActionPerformed
+        if(this.heitot<=3) {
+            this.peli.getNoppakasi().heitaValitsemattomat();
+            paivitaNopat();
+            this.heitot++;
+            
+        }
+    }//GEN-LAST:event_heitaNopatActionPerformed
 
     /**
      * @param args the command line arguments
@@ -59,6 +290,19 @@ public class PeliIkkuna extends javax.swing.JFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextPane Pistetaulukko;
+    private javax.swing.JButton heitaNopat;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JCheckBox nopanValinta1;
+    private javax.swing.JCheckBox nopanValinta2;
+    private javax.swing.JCheckBox nopanValinta3;
+    private javax.swing.JCheckBox nopanValinta4;
+    private javax.swing.JCheckBox nopanValinta5;
+    private javax.swing.JLabel noppa1;
+    private javax.swing.JLabel noppa2;
+    private javax.swing.JLabel noppa3;
+    private javax.swing.JLabel noppa4;
+    private javax.swing.JLabel noppa5;
+    private javax.swing.JTextField pelaajanNimi;
     // End of variables declaration//GEN-END:variables
 }
