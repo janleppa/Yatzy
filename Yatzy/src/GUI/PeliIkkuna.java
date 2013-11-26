@@ -35,6 +35,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
 
     public void pelaa(Pelaaja pelaaja) {
         this.pelaaja = pelaaja;
+        this.pelaajanNimi.setText("Pelaajan" + this.pelaaja.getNimi() + " vuoro");
         this.onkoPisteetAsetettu = false;
         this.heitot = 1;
         this.pistetaulukko.setText(this.pelaaja.getTaulukko().toStringGraafiselle());
