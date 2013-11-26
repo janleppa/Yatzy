@@ -26,15 +26,30 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="pelaajanNimi" min="-2" pref="184" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Component id="pelaajanNimi" min="-2" pref="184" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="jScrollPane2" min="-2" pref="430" max="-2" attributes="0"/>
-                      <EmptySpace pref="264" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="230" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="kolmeSamaa" alignment="0" max="32767" attributes="0"/>
+                          <Component id="kaksiParia" alignment="0" max="32767" attributes="0"/>
+                          <Component id="pari" alignment="0" max="32767" attributes="0"/>
+                          <Component id="kutoset" alignment="0" max="32767" attributes="0"/>
+                          <Component id="vitoset" alignment="0" max="32767" attributes="0"/>
+                          <Component id="neloset" alignment="0" max="32767" attributes="0"/>
+                          <Component id="kolmoset" alignment="0" max="32767" attributes="0"/>
+                          <Component id="kakkoset" alignment="0" max="32767" attributes="0"/>
+                          <Component id="ykkoset" alignment="0" max="32767" attributes="0"/>
+                          <Component id="neljaSamaa" min="-2" max="-2" attributes="0"/>
+                          <Component id="pieniSuora" alignment="0" max="32767" attributes="0"/>
+                          <Component id="isoSuora" alignment="0" max="32767" attributes="0"/>
+                          <Component id="tayskasi" alignment="0" max="32767" attributes="0"/>
+                          <Component id="sattuma" alignment="0" max="32767" attributes="0"/>
+                          <Component id="yatzy" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                               <Component id="heitaNopat" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -50,7 +65,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="noppa4" min="-2" max="-2" attributes="0"/>
                                   <Component id="noppa5" min="-2" max="-2" attributes="0"/>
@@ -62,53 +77,86 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace pref="23" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="nopanValinta1" min="-2" max="-2" attributes="0"/>
-                          <Component id="noppa1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="noppa2" min="-2" max="-2" attributes="0"/>
-                          <Component id="nopanValinta2" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="noppa3" min="-2" max="-2" attributes="0"/>
-                          <Component id="nopanValinta3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="nopanValinta4" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="noppa4" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="nopanValinta5" min="-2" max="-2" attributes="0"/>
-                          <Component id="noppa5" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                      <Component id="heitaNopat" min="-2" max="-2" attributes="0"/>
-                  </Group>
+              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+              <Component id="pelaajanNimi" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jScrollPane1" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
+                      <Component id="ykkoset" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="pelaajanNimi" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" min="-2" pref="471" max="-2" attributes="0"/>
+                      <Component id="kakkoset" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="nopanValinta1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="noppa1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="noppa2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="nopanValinta2" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="noppa3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="nopanValinta3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="nopanValinta4" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="noppa4" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="nopanValinta5" min="-2" max="-2" attributes="0"/>
+                                  <Component id="noppa5" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="kolmoset" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="neloset" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="vitoset" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="kutoset" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="pari" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="kaksiParia" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="kolmeSamaa" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="neljaSamaa" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="pieniSuora" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <Component id="isoSuora" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="tayskasi" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="sattuma" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="yatzy" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="heitaNopat" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="73" max="32767" attributes="0"/>
+              <EmptySpace pref="83" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -152,17 +200,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="pelaajanNimi">
     </Component>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-      <AuxValues>
-        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-      </AuxValues>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="javax.swing.JTextPane" name="Pistetaulukko">
-        </Component>
-      </SubComponents>
-    </Container>
     <Component class="javax.swing.JLabel" name="noppa1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -196,6 +233,96 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/GUI/kuvat/noppa6.jpg"/>
         </Property>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="pistetaulukko">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="rows" type="int" value="5"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JButton" name="ykkoset">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ykk&#xf6;set"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="kakkoset">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Kakkoset"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="kolmoset">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Kolmoset"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="neloset">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Neloset"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="vitoset">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Vitoset"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="kutoset">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Kutoset"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="pari">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pari"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="kaksiParia">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Kaksi paria"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="kolmeSamaa">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Kolme samaa"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="neljaSamaa">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nelj&#xe4; samaa"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="pieniSuora">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pieni suora"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="isoSuora">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Iso suora"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="tayskasi">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="T&#xe4;ysk&#xe4;si"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="sattuma">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Sattuma"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="yatzy">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Yatzy"/>
       </Properties>
     </Component>
   </SubComponents>
