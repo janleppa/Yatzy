@@ -53,6 +53,7 @@ public class Pistelaskuri {
      * @return Parin pisteet.
      */
     public int parinPisteet() {
+        this.kasi.jarjestaKasi();
         if (!this.tarkastaja.onkoKadessaPari()) {
             return 0;
         }
@@ -68,6 +69,7 @@ public class Pistelaskuri {
      * @return Parin pisteet.
      */
     public int kolmostenPisteet() {
+        this.kasi.jarjestaKasi();
         if (!this.tarkastaja.onkoKadessaKolmoset()) {
             return 0;
         }
@@ -83,6 +85,7 @@ public class Pistelaskuri {
      * @return Parin pisteet.
      */
     public int nelostenPisteet() {
+        this.kasi.jarjestaKasi();
         if (!this.tarkastaja.onkoKadessaNeloset()) {
             return 0;
         }
@@ -97,6 +100,7 @@ public class Pistelaskuri {
      * @return 50 tai 0.
      */
     public int yatzyPisteet() {
+        this.kasi.jarjestaKasi();
         if (!this.tarkastaja.onkoKadessaYatzy()) {
             return 0;
         }
@@ -110,6 +114,7 @@ public class Pistelaskuri {
      * @return 15 tai 0.
      */
     public int pieniSuoraPisteet() {
+        this.kasi.jarjestaKasi();
         if (!this.tarkastaja.onkoKadessaPieniSuora()) {
             return 0;
         }
@@ -123,6 +128,7 @@ public class Pistelaskuri {
      * @return 20 tai 0.
      */
     public int isoSuoraPisteet() {
+        this.kasi.jarjestaKasi();
         if (!this.tarkastaja.onkoKadessaIsoSuora()) {
             return 0;
         }
@@ -137,6 +143,7 @@ public class Pistelaskuri {
      * @return Noppien silmälukujen summa.
      */
     public int tayskasiPisteet() {
+        this.kasi.jarjestaKasi();
         if (!this.tarkastaja.onkoKadessaTayskasi()) {
             return 0;
         }
@@ -152,6 +159,7 @@ public class Pistelaskuri {
      */
 
     public int kaksiPariaPisteet() {
+        this.kasi.jarjestaKasi();
         if (!this.tarkastaja.onkoKadessaKaksiParia()) {
             return 0;
         }
@@ -179,6 +187,7 @@ public class Pistelaskuri {
      * @return Luvun <code>n</code> pistemäärä.
      */
     public int luvunNPisteet(int n) {
+        this.kasi.jarjestaKasi();
         int lkm = this.laskeSilmaluvunNlkm(n);
         return n * lkm;
     }
@@ -190,6 +199,7 @@ public class Pistelaskuri {
      * @return Silmälukujen summa.
      */
     public int sattumaPisteet() {
+        this.kasi.jarjestaKasi();
         return this.kadenSumma();
     }
 

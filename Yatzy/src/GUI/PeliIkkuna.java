@@ -37,6 +37,10 @@ public class PeliIkkuna extends javax.swing.JFrame {
         this.pelaaja = pelaaja;
         this.pelaajanNimi.setText("Pelaajan " + this.pelaaja.getNimi() + " vuoro.");
         this.onkoPisteetAsetettu = false;
+
+        this.peli.getNoppakasi().heitaValitsemattomat();
+        paivitaNopat();
+
         this.heitot = 1;
         this.pistetaulukko.setText(this.pelaaja.getTaulukko().toStringGraafiselle());
 
@@ -46,8 +50,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
     private void aloitaPeli() {
 
         this.peli.luoPisteTaulukotPelaajille();
-        this.peli.getNoppakasi().heitaValitsemattomat();
-        paivitaNopat();
+
 
     }
 
@@ -79,6 +82,16 @@ public class PeliIkkuna extends javax.swing.JFrame {
             return 0;
         }
         return seuraava;
+    }
+
+    private void poistaNoppaValinnat() {
+        this.peli.getNoppakasi().poistaKaikkiNoppaValinnat();
+
+        nopanValinta1.setSelected(false);
+        nopanValinta2.setSelected(false);
+        nopanValinta3.setSelected(false);
+        nopanValinta4.setSelected(false);
+        nopanValinta5.setSelected(false);
     }
 
     /**
@@ -349,12 +362,12 @@ public class PeliIkkuna extends javax.swing.JFrame {
                             .addComponent(kolmoset, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(kakkoset, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(ykkoset, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(neljaSamaa)
                             .addComponent(pieniSuora, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(isoSuora, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(tayskasi, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(sattuma, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(yatzy, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(yatzy, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(neljaSamaa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -518,7 +531,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
     }//GEN-LAST:event_nopanValinta5ItemStateChanged
 
     private void heitaNopatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_heitaNopatActionPerformed
-        if (this.heitot <= 3) {
+        if (this.heitot < 3 && this.onkoPisteetAsetettu == false) {
             this.peli.getNoppakasi().heitaValitsemattomat();
             heitot++;
             paivitaNopat();
@@ -538,13 +551,15 @@ public class PeliIkkuna extends javax.swing.JFrame {
 
     private void seuraavaPelaajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seuraavaPelaajaActionPerformed
         if (!this.peli.jatkuukoPeli()) {
+            pelinLopetus();
         } else if (!this.onkoPisteetAsetettu) {
         } else {
             int seuraava = seuuravanNumero();
             this.PelaajanNro = seuraava;
             this.pelaaja = this.peli.getPelaajaLista().get(seuraava);
-            this.peli.getNoppakasi().poistaKaikkiNoppaValinnat();
 
+
+            this.poistaNoppaValinnat();
 
             pelaa(this.pelaaja);
         }
@@ -712,4 +727,8 @@ public class PeliIkkuna extends javax.swing.JFrame {
     private javax.swing.JButton yatzy;
     private javax.swing.JButton ykkoset;
     // End of variables declaration//GEN-END:variables
+
+    private void pelinLopetus() {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
 }

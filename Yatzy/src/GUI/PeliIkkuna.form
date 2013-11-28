@@ -47,12 +47,12 @@
                           <Component id="kolmoset" alignment="0" max="32767" attributes="0"/>
                           <Component id="kakkoset" alignment="0" max="32767" attributes="0"/>
                           <Component id="ykkoset" alignment="0" max="32767" attributes="0"/>
-                          <Component id="neljaSamaa" min="-2" max="-2" attributes="0"/>
                           <Component id="pieniSuora" alignment="0" max="32767" attributes="0"/>
                           <Component id="isoSuora" alignment="0" max="32767" attributes="0"/>
                           <Component id="tayskasi" alignment="0" max="32767" attributes="0"/>
                           <Component id="sattuma" alignment="0" max="32767" attributes="0"/>
                           <Component id="yatzy" alignment="0" max="32767" attributes="0"/>
+                          <Component id="neljaSamaa" alignment="1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="56" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
