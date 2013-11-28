@@ -39,6 +39,8 @@ public class PeliIkkuna extends javax.swing.JFrame {
         this.onkoPisteetAsetettu = false;
         this.heitot = 1;
         this.pistetaulukko.setText(this.pelaaja.getTaulukko().toStringGraafiselle());
+        
+        
     }
 
     private void aloitaPeli() {
@@ -457,6 +459,9 @@ public class PeliIkkuna extends javax.swing.JFrame {
         } else {
             int seuraava = seuuravanNumero();
             this.pelaaja = this.peli.getPelaajaLista().get(seuraava);
+            this.peli.getNoppakasi().poistaKaikkiNoppaValinnat();
+            
+            
             pelaa(this.pelaaja);
         }
     }//GEN-LAST:event_seuraavaPelaajaActionPerformed
@@ -499,7 +504,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
 
     private int seuuravanNumero() {
         int seuraava = this.PelaajanNro + 1;
-        if (this.peli.getPelaajaLista().get(seuraava) == null) {
+        if (this.peli.getPelaajaLista().size() <= seuraava) {
             return 0;
         }
         return seuraava;
