@@ -35,12 +35,12 @@ public class PeliIkkuna extends javax.swing.JFrame {
 
     public void pelaa(Pelaaja pelaaja) {
         this.pelaaja = pelaaja;
-        this.pelaajanNimi.setText("Pelaajan" + this.pelaaja.getNimi() + " vuoro");
+        this.pelaajanNimi.setText("Pelaajan " + this.pelaaja.getNimi() + " vuoro.");
         this.onkoPisteetAsetettu = false;
         this.heitot = 1;
         this.pistetaulukko.setText(this.pelaaja.getTaulukko().toStringGraafiselle());
-        
-        
+
+
     }
 
     private void aloitaPeli() {
@@ -71,6 +71,14 @@ public class PeliIkkuna extends javax.swing.JFrame {
         noppa4.setIcon(new javax.swing.ImageIcon(getClass().getResource(neljasKuva)));
         noppa5.setIcon(new javax.swing.ImageIcon(getClass().getResource(viidesKuva)));
 
+    }
+
+    private int seuuravanNumero() {
+        int seuraava = this.PelaajanNro + 1;
+        if (this.peli.getPelaajaLista().size() <= seuraava) {
+            return 0;
+        }
+        return seuraava;
     }
 
     /**
@@ -191,45 +199,115 @@ public class PeliIkkuna extends javax.swing.JFrame {
 
         kakkoset.setText("Kakkoset");
         pisteNapit.add(kakkoset);
+        kakkoset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kakkosetActionPerformed(evt);
+            }
+        });
 
         kolmoset.setText("Kolmoset");
         pisteNapit.add(kolmoset);
+        kolmoset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kolmosetActionPerformed(evt);
+            }
+        });
 
         neloset.setText("Neloset");
         pisteNapit.add(neloset);
+        neloset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nelosetActionPerformed(evt);
+            }
+        });
 
         vitoset.setText("Vitoset");
         pisteNapit.add(vitoset);
+        vitoset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vitosetActionPerformed(evt);
+            }
+        });
 
         kutoset.setText("Kutoset");
         pisteNapit.add(kutoset);
+        kutoset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kutosetActionPerformed(evt);
+            }
+        });
 
         pari.setText("Pari");
         pisteNapit.add(pari);
+        pari.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pariActionPerformed(evt);
+            }
+        });
 
         kaksiParia.setText("Kaksi paria");
         pisteNapit.add(kaksiParia);
+        kaksiParia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kaksiPariaActionPerformed(evt);
+            }
+        });
 
         kolmeSamaa.setText("Kolme samaa");
         pisteNapit.add(kolmeSamaa);
+        kolmeSamaa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kolmeSamaaActionPerformed(evt);
+            }
+        });
 
         neljaSamaa.setText("Neljä samaa");
         pisteNapit.add(neljaSamaa);
+        neljaSamaa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                neljaSamaaActionPerformed(evt);
+            }
+        });
 
         pieniSuora.setText("Pieni suora");
         pisteNapit.add(pieniSuora);
+        pieniSuora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pieniSuoraActionPerformed(evt);
+            }
+        });
 
         isoSuora.setText("Iso suora");
         pisteNapit.add(isoSuora);
+        isoSuora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                isoSuoraActionPerformed(evt);
+            }
+        });
 
         tayskasi.setText("Täyskäsi");
         pisteNapit.add(tayskasi);
+        tayskasi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tayskasiActionPerformed(evt);
+            }
+        });
 
         sattuma.setText("Sattuma");
         pisteNapit.add(sattuma);
+        sattuma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sattumaActionPerformed(evt);
+            }
+        });
 
         yatzy.setText("Yatzy");
         pisteNapit.add(yatzy);
+        yatzy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yatzyActionPerformed(evt);
+            }
+        });
 
         pistetaulukko.setEditable(false);
         pistetaulukko.setColumns(21);
@@ -352,23 +430,24 @@ public class PeliIkkuna extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(nopanValinta5)
                                     .addComponent(noppa5))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(pieniSuora)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(isoSuora)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tayskasi))
+                                .addComponent(tayskasi)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(sattuma)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(heitaNopat)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(sattuma)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(yatzy)
-                            .addComponent(seuraavaPelaaja)))
+                        .addComponent(yatzy)
+                        .addGap(8, 8, 8)
+                        .addComponent(seuraavaPelaaja))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(77, Short.MAX_VALUE))
         );
@@ -449,8 +528,12 @@ public class PeliIkkuna extends javax.swing.JFrame {
     }//GEN-LAST:event_heitaNopatActionPerformed
 
     private void ykkosetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ykkosetActionPerformed
-        pelaaja.getTaulukko().lisaaPisteet("Ykkoset");
-        this.onkoPisteetAsetettu = true;
+        if (!this.onkoPisteetAsetettu) {
+            boolean lisattiinko = pelaaja.getTaulukko().lisaaPisteet("Ykkoset");
+            this.onkoPisteetAsetettu = lisattiinko;
+            this.pistetaulukko.setText(this.pelaaja.getTaulukko().toStringGraafiselle());
+        }
+
     }//GEN-LAST:event_ykkosetActionPerformed
 
     private void seuraavaPelaajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seuraavaPelaajaActionPerformed
@@ -458,13 +541,141 @@ public class PeliIkkuna extends javax.swing.JFrame {
         } else if (!this.onkoPisteetAsetettu) {
         } else {
             int seuraava = seuuravanNumero();
+            this.PelaajanNro = seuraava;
             this.pelaaja = this.peli.getPelaajaLista().get(seuraava);
             this.peli.getNoppakasi().poistaKaikkiNoppaValinnat();
-            
-            
+
+
             pelaa(this.pelaaja);
         }
+
     }//GEN-LAST:event_seuraavaPelaajaActionPerformed
+
+    private void kakkosetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kakkosetActionPerformed
+        if (!this.onkoPisteetAsetettu) {
+
+            boolean lisattiinko = pelaaja.getTaulukko().lisaaPisteet("Kakkoset");
+            this.onkoPisteetAsetettu = lisattiinko;
+            this.pistetaulukko.setText(this.pelaaja.getTaulukko().toStringGraafiselle());
+        }
+    }//GEN-LAST:event_kakkosetActionPerformed
+
+    private void kolmosetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kolmosetActionPerformed
+        if (!this.onkoPisteetAsetettu) {
+
+            boolean lisattiinko = pelaaja.getTaulukko().lisaaPisteet("Kolmoset");
+            this.onkoPisteetAsetettu = lisattiinko;
+            this.pistetaulukko.setText(this.pelaaja.getTaulukko().toStringGraafiselle());
+        }
+    }//GEN-LAST:event_kolmosetActionPerformed
+
+    private void nelosetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nelosetActionPerformed
+        if (!this.onkoPisteetAsetettu) {
+
+            boolean lisattiinko = pelaaja.getTaulukko().lisaaPisteet("Neloset");
+            this.onkoPisteetAsetettu = lisattiinko;
+            this.pistetaulukko.setText(this.pelaaja.getTaulukko().toStringGraafiselle());
+        }
+    }//GEN-LAST:event_nelosetActionPerformed
+
+    private void vitosetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vitosetActionPerformed
+        if (!this.onkoPisteetAsetettu) {
+
+            boolean lisattiinko = pelaaja.getTaulukko().lisaaPisteet("Vitoset");
+            this.onkoPisteetAsetettu = lisattiinko;
+            this.pistetaulukko.setText(this.pelaaja.getTaulukko().toStringGraafiselle());
+        }
+    }//GEN-LAST:event_vitosetActionPerformed
+
+    private void kutosetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kutosetActionPerformed
+        if (!this.onkoPisteetAsetettu) {
+
+            boolean lisattiinko = pelaaja.getTaulukko().lisaaPisteet("Kutoset");
+            this.onkoPisteetAsetettu = lisattiinko;
+            this.pistetaulukko.setText(this.pelaaja.getTaulukko().toStringGraafiselle());
+        }
+    }//GEN-LAST:event_kutosetActionPerformed
+
+    private void pariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pariActionPerformed
+        if (!this.onkoPisteetAsetettu) {
+
+            boolean lisattiinko = pelaaja.getTaulukko().lisaaPisteet("Pari");
+            this.onkoPisteetAsetettu = lisattiinko;
+            this.pistetaulukko.setText(this.pelaaja.getTaulukko().toStringGraafiselle());
+        }
+    }//GEN-LAST:event_pariActionPerformed
+
+    private void kaksiPariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kaksiPariaActionPerformed
+        if (!this.onkoPisteetAsetettu) {
+
+            boolean lisattiinko = pelaaja.getTaulukko().lisaaPisteet("Kaksi paria");
+            this.onkoPisteetAsetettu = lisattiinko;
+            this.pistetaulukko.setText(this.pelaaja.getTaulukko().toStringGraafiselle());
+        }
+    }//GEN-LAST:event_kaksiPariaActionPerformed
+
+    private void kolmeSamaaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kolmeSamaaActionPerformed
+        if (!this.onkoPisteetAsetettu) {
+
+            boolean lisattiinko = pelaaja.getTaulukko().lisaaPisteet("Kolme samaa");
+            this.onkoPisteetAsetettu = lisattiinko;
+            this.pistetaulukko.setText(this.pelaaja.getTaulukko().toStringGraafiselle());
+        }
+    }//GEN-LAST:event_kolmeSamaaActionPerformed
+
+    private void neljaSamaaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_neljaSamaaActionPerformed
+        if (!this.onkoPisteetAsetettu) {
+
+            boolean lisattiinko = pelaaja.getTaulukko().lisaaPisteet("Nelja samaa");
+            this.onkoPisteetAsetettu = lisattiinko;
+            this.pistetaulukko.setText(this.pelaaja.getTaulukko().toStringGraafiselle());
+        }
+    }//GEN-LAST:event_neljaSamaaActionPerformed
+
+    private void pieniSuoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pieniSuoraActionPerformed
+        if (!this.onkoPisteetAsetettu) {
+
+            boolean lisattiinko = pelaaja.getTaulukko().lisaaPisteet("Pieni suora");
+            this.onkoPisteetAsetettu = lisattiinko;
+            this.pistetaulukko.setText(this.pelaaja.getTaulukko().toStringGraafiselle());
+        }
+    }//GEN-LAST:event_pieniSuoraActionPerformed
+
+    private void isoSuoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isoSuoraActionPerformed
+        if (!this.onkoPisteetAsetettu) {
+
+            boolean lisattiinko = pelaaja.getTaulukko().lisaaPisteet("Iso suora");
+            this.onkoPisteetAsetettu = lisattiinko;
+            this.pistetaulukko.setText(this.pelaaja.getTaulukko().toStringGraafiselle());
+        }
+    }//GEN-LAST:event_isoSuoraActionPerformed
+
+    private void tayskasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tayskasiActionPerformed
+        if (!this.onkoPisteetAsetettu) {
+
+            boolean lisattiinko = pelaaja.getTaulukko().lisaaPisteet("Tayskasi");
+            this.onkoPisteetAsetettu = lisattiinko;
+            this.pistetaulukko.setText(this.pelaaja.getTaulukko().toStringGraafiselle());
+        }
+    }//GEN-LAST:event_tayskasiActionPerformed
+
+    private void sattumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sattumaActionPerformed
+        if (!this.onkoPisteetAsetettu) {
+
+            boolean lisattiinko = pelaaja.getTaulukko().lisaaPisteet("Sattuma");
+            this.onkoPisteetAsetettu = lisattiinko;
+            this.pistetaulukko.setText(this.pelaaja.getTaulukko().toStringGraafiselle());
+        }
+    }//GEN-LAST:event_sattumaActionPerformed
+
+    private void yatzyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yatzyActionPerformed
+        if (!this.onkoPisteetAsetettu) {
+
+            boolean lisattiinko = pelaaja.getTaulukko().lisaaPisteet("Yatzy");
+            this.onkoPisteetAsetettu = lisattiinko;
+            this.pistetaulukko.setText(this.pelaaja.getTaulukko().toStringGraafiselle());
+        }
+    }//GEN-LAST:event_yatzyActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -501,12 +712,4 @@ public class PeliIkkuna extends javax.swing.JFrame {
     private javax.swing.JButton yatzy;
     private javax.swing.JButton ykkoset;
     // End of variables declaration//GEN-END:variables
-
-    private int seuuravanNumero() {
-        int seuraava = this.PelaajanNro + 1;
-        if (this.peli.getPelaajaLista().size() <= seuraava) {
-            return 0;
-        }
-        return seuraava;
-    }
 }

@@ -228,56 +228,57 @@ public class Pistetaulukko {
     }
     
     /**
-     * Lisää pisteet parametrin osoittamaan paikkaa. Jos lisäys onnistui palautuu true, muulloin false.
+     * Lisää pisteet parametrin osoittamaan paikkaa. Jos lisäys onnistui palautuu true, muulloin false. 
+     * Pisteitä ei lisätä, jos taulukossa on tällä kohtaa jo pisteet.
      * @param mihin Mihin kohtaan taulukkoa pisteet halutaan.
      * @return True jos lisäys onnistui, false muuten.
      */
 
     public boolean lisaaPisteet(String mihin) {
         if (this.pisteet.containsKey(mihin)) {
-            if (mihin.equals("Ykkoset")) {
+            if (mihin.equals("Ykkoset") && this.pisteet.get("Ykkoset")==null) {
                 this.lisaaLuvunNPisteet(1);
                 return true;
-            } else if (mihin.equals("Kakkoset")) {
+            } else if (mihin.equals("Kakkoset") && this.pisteet.get("Kakkoset")==null) {
                 this.lisaaLuvunNPisteet(2);
                 return true;
-            } else if (mihin.equals("Kolmoset")) {
+            } else if (mihin.equals("Kolmoset") && this.pisteet.get("Kolmoset")==null) {
                 this.lisaaLuvunNPisteet(3);
                 return true;
-            } else if (mihin.equals("Neloset")) {
+            } else if (mihin.equals("Neloset") && this.pisteet.get("Neloset")==null) {
                 this.lisaaLuvunNPisteet(4);
                 return true;
-            } else if (mihin.equals("Vitoset")) {
+            } else if (mihin.equals("Vitoset") && this.pisteet.get("Vitoset")==null) {
                 this.lisaaLuvunNPisteet(5);
                 return true;
-            } else if (mihin.equals("Kutoset")) {
+            } else if (mihin.equals("Kutoset") && this.pisteet.get("Kutoset")==null) {
                 this.lisaaLuvunNPisteet(6);
                 return true;
-            } else if (mihin.equals("Pari")) {
+            } else if (mihin.equals("Pari") && this.pisteet.get("Pari")==null) {
                 this.lisaaParinPisteet();
                 return true;
-            } else if (mihin.equals("Kaksi paria")) {
+            } else if (mihin.equals("Kaksi paria") && this.pisteet.get("Kaksi paria")==null) {
                 this.lisaaKaksiPariaPisteet();
                 return true;
-            } else if (mihin.equals("Kolme samaa")) {
+            } else if (mihin.equals("Kolme samaa") && this.pisteet.get("Kolme samaa")==null) {
                 this.lisaaKolmostenPisteet();
                 return true;
-            } else if (mihin.equals("Nelja samaa")) {
+            } else if (mihin.equals("Nelja samaa") && this.pisteet.get("Nelja samaa")==null) {
                 this.lisaaNelostenPisteet();
                 return true;
-            } else if (mihin.equals("Pieni suora")) {
+            } else if (mihin.equals("Pieni suora") && this.pisteet.get("Pieni suora")==null) {
                 this.lisaaPienenSuoranPisteet();
                 return true;
-            } else if (mihin.equals("Iso suora")) {
+            } else if (mihin.equals("Iso suora") && this.pisteet.get("Iso suora")==null) {
                 this.lisaaIsonSuoranPisteet();
                 return true;
-            } else if (mihin.equals("Tayskasi")) {
+            } else if (mihin.equals("Tayskasi") && this.pisteet.get("Tayskasi")==null) {
                 this.lisaaTayskadenPisteet();
                 return true;
-            } else if (mihin.equals("Sattuma")) {
+            } else if (mihin.equals("Sattuma") && this.pisteet.get("Sattuma")==null) {
                 this.lisaaSattumaPisteet();
                 return true;
-            } else if (mihin.equals("Yatzy")) {
+            } else if (mihin.equals("Yatzy") && this.pisteet.get("Yatzy")==null) {
                 this.lisaaYatzynPisteet();
                return true;
 

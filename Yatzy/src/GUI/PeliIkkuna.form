@@ -11,7 +11,6 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -151,27 +150,27 @@
                               </Group>
                           </Group>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="pieniSuora" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Component id="isoSuora" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="tayskasi" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="sattuma" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Component id="heitaNopat" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="sattuma" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="yatzy" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="seuraavaPelaaja" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="yatzy" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                      <Component id="seuraavaPelaaja" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane2" min="-2" pref="460" max="-2" attributes="0"/>
               </Group>
@@ -275,6 +274,9 @@
           <ComponentRef name="pisteNapit"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kakkosetActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="kolmoset">
       <Properties>
@@ -283,6 +285,9 @@
           <ComponentRef name="pisteNapit"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kolmosetActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="neloset">
       <Properties>
@@ -291,6 +296,9 @@
           <ComponentRef name="pisteNapit"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nelosetActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="vitoset">
       <Properties>
@@ -299,6 +307,9 @@
           <ComponentRef name="pisteNapit"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vitosetActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="kutoset">
       <Properties>
@@ -307,6 +318,9 @@
           <ComponentRef name="pisteNapit"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kutosetActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="pari">
       <Properties>
@@ -315,6 +329,9 @@
           <ComponentRef name="pisteNapit"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pariActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="kaksiParia">
       <Properties>
@@ -323,6 +340,9 @@
           <ComponentRef name="pisteNapit"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kaksiPariaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="kolmeSamaa">
       <Properties>
@@ -331,6 +351,9 @@
           <ComponentRef name="pisteNapit"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="kolmeSamaaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="neljaSamaa">
       <Properties>
@@ -339,6 +362,9 @@
           <ComponentRef name="pisteNapit"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="neljaSamaaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="pieniSuora">
       <Properties>
@@ -347,6 +373,9 @@
           <ComponentRef name="pisteNapit"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pieniSuoraActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="isoSuora">
       <Properties>
@@ -355,6 +384,9 @@
           <ComponentRef name="pisteNapit"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="isoSuoraActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="tayskasi">
       <Properties>
@@ -363,6 +395,9 @@
           <ComponentRef name="pisteNapit"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tayskasiActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="sattuma">
       <Properties>
@@ -371,6 +406,9 @@
           <ComponentRef name="pisteNapit"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sattumaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="yatzy">
       <Properties>
@@ -379,6 +417,9 @@
           <ComponentRef name="pisteNapit"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="yatzyActionPerformed"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
       <AuxValues>
