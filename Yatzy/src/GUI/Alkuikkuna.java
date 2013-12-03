@@ -8,9 +8,8 @@ import java.util.ArrayList;
 import javax.swing.JTextField;
 import logiikka.Yatzypeli;
 import yatzy.Pelaaja;
-
 /**
- *
+ * Ikkuna, joka tulee esiin avattaessa peli. Tässä ikkunassa kysytään pelaajat, jonka jälkeen siirrytään itse peliin.
  * @author janne_000
  */
 public class Alkuikkuna extends javax.swing.JFrame {
@@ -93,13 +92,12 @@ public class Alkuikkuna extends javax.swing.JFrame {
         jTextArea1.setBackground(new java.awt.Color(240, 240, 240));
         jTextArea1.setColumns(35);
         jTextArea1.setRows(5);
-        jTextArea1.setText("Tervetuloa pelaamaan Yatzya! \nPäästäksesi pelaamaan, kirjoita alla \noleviin kenttiin pelaajien nimet.\nPelissä täytyy olla \nvähintään kaksi henkilöä!");
+        jTextArea1.setText("Tervetuloa pelaamaan Yatzya! \nPäästäksesi pelaamaan, kirjoita alla \noleviin kenttiin pelaajien nimet.\nPelissä täytyy olla \nvähintään kaksi henkilöä! Älä kirjoita\nyli 15 merkin mittaista nimeä.");
         jTextArea1.setAutoscrolls(false);
         jTextArea1.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
         jTextArea1.setOpaque(false);
         jScrollPane1.setViewportView(jTextArea1);
         jTextArea1.getAccessibleContext().setAccessibleDescription("");
-        jTextArea1.getAccessibleContext().setAccessibleParent(null);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -134,8 +132,8 @@ public class Alkuikkuna extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -158,7 +156,7 @@ public class Alkuikkuna extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(pelaaja5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lopetaNappi)
                     .addComponent(pelaaNappi))
@@ -169,14 +167,14 @@ public class Alkuikkuna extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * Aloittaa pelin, jos kentistä löytyy vähintään nimeä.
+     * Aloittaa pelin, jos kentistä löytyy vähintään kaksi nimeä ja nimet eivät ole liian pitkiä (yli 15 merkkiä).
      * @param evt 
      */
     private void pelaaNappiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pelaaNappiActionPerformed
         ArrayList<Pelaaja> pelaajat = new ArrayList<Pelaaja>();
 
         for (JTextField kentta : this.kentat) {
-            if (!kentta.getText().isEmpty() && kentta.getText().length()< 13) {
+            if (!kentta.getText().isEmpty() && kentta.getText().length()< 16) {
                 pelaajat.add(new Pelaaja(kentta.getText()));
             }
         }
@@ -200,7 +198,10 @@ public class Alkuikkuna extends javax.swing.JFrame {
     private void pelaaja1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pelaaja1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pelaaja1ActionPerformed
-
+    /**
+     * Sulkee ikkunan.
+     * @param evt 
+     */
     private void lopetaNappiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lopetaNappiActionPerformed
         setVisible(false);
         dispose();
@@ -241,6 +242,10 @@ public class Alkuikkuna extends javax.swing.JFrame {
             }
         });
     }
+    
+    /**
+     * Apumetodi, joka listaa nimikentät ArrayListiin.
+     */
 
     private void listaaPelaajaKentat() {
         ArrayList<JTextField> kentat = new ArrayList<JTextField>();

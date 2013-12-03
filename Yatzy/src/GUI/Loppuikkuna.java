@@ -5,9 +5,15 @@
 package GUI;
 
 import logiikka.Yatzypeli;
+/**
+ * Lopetusikkuna, jossa kerrotaan voittaja ja esitellään lopputulokset.
+ * @author janne_000
+ */
 
 public class Loppuikkuna extends javax.swing.JFrame {
-
+    /**
+     * Peli jonka tulokset näytetään.
+     */
     private Yatzypeli peli;
 
     /**
@@ -75,7 +81,10 @@ public class Loppuikkuna extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Sulkee pelin.
+     * @param evt 
+     */
     private void lopetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lopetaActionPerformed
         setVisible(false);
         dispose();

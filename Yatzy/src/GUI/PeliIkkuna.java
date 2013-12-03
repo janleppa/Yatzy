@@ -10,13 +10,32 @@ import javax.swing.JScrollPane;
 import logiikka.Yatzypeli;
 import yatzy.Noppakasi;
 import yatzy.Pelaaja;
-
+/**
+ * Ikkuna, jossa tapahtuu itse pelaaminen. Näkyvillä on koko ajan vuorossa olevan pelaajan pistetaulukko ja noppakäsi. Pelaaja voi heittää ja valita noppia, sekä asettaa pisteet.
+ * Vuoroa ei voi vaihtaa toiselle pelaajalle ennen kuin pisteet on asetettu.
+ * @author janne_000
+ */
 public class PeliIkkuna extends javax.swing.JFrame {
-
+    /**
+     * Kokonaislukumuuttuja, joka pitää kirjaa käytetyistä heitoista.
+     */
     private int heitot = 1;
+    /**
+     * Käynnissä oleva peli.
+     */
     private Yatzypeli peli;
+    /**
+     * Vuorossa oleva pelaaja.
+     */
     private Pelaaja pelaaja;
+    /**
+     * Tällä muuttujalla tarkistetaan onko vuorossa oleva pelaaja
+     * asettanut jo pisteet.
+     */
     private boolean onkoPisteetAsetettu = false;
+    /**
+     * Pelaajan vuoronumero.
+     */
     private int PelaajanNro = 0;
 
     /**
@@ -32,7 +51,12 @@ public class PeliIkkuna extends javax.swing.JFrame {
 
         pelaa(this.peli.getPelaajaLista().get(this.PelaajanNro));
     }
-
+    /**
+     * Kertoo mitä jokaisen pelaajan vuorolla tapahtuu. Metodille annetaan parametrina pelaaja-olio,
+     * jonka vuoroa aletaan pelaamaan. Heitot asetetaan nollaksi, pelaajalle heitetään aloitukäsi ja 
+     * muuttujan <code>onkoPisteetAsetettu</code> arvoksi vaihdetaan <code>false</code>.
+     * @param pelaaja 
+     */
     public void pelaa(Pelaaja pelaaja) {
         this.pelaaja = pelaaja;
         this.pelaajanNimi.setText("Pelaajan " + this.pelaaja.getNimi() + " vuoro.");
@@ -46,6 +70,10 @@ public class PeliIkkuna extends javax.swing.JFrame {
 
 
     }
+    
+    /**
+     * Luo pistetaulukot pelaajille.
+     */
 
     private void aloitaPeli() {
 
@@ -53,6 +81,10 @@ public class PeliIkkuna extends javax.swing.JFrame {
 
 
     }
+    
+    /**
+     * Metodi, joka päivittää noppaikonit vastamaan senhetkistä noppakättä.
+     */
 
     public void paivitaNopat() {
         Noppakasi kasi = this.peli.getNoppakasi();
@@ -75,6 +107,11 @@ public class PeliIkkuna extends javax.swing.JFrame {
         noppa5.setIcon(new javax.swing.ImageIcon(getClass().getResource(viidesKuva)));
 
     }
+    
+    /**
+     * Kertoo seuraavan pelaajan järjestysnumeron.
+     * @return seuraavan pelaajan numero.
+     */
 
     private int seuuravanNumero() {
         int seuraava = this.PelaajanNro + 1;
@@ -83,6 +120,10 @@ public class PeliIkkuna extends javax.swing.JFrame {
         }
         return seuraava;
     }
+    
+    /**
+     * Poistaa valinnat kaikilta nopilta.
+     */
 
     private void poistaNoppaValinnat() {
         this.peli.getNoppakasi().poistaKaikkiNoppaValinnat();
@@ -548,7 +589,10 @@ public class PeliIkkuna extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_ykkosetActionPerformed
-
+/**
+ * Vaihtaa vuoron seuraavalle pelaajalle. Jos kaikkien pelaajien pistetaulukot ovat täynnä, niin ruutuun pitäisi pamahtaa loppuikkuna ja tulokset.
+ * @param evt 
+ */
     private void seuraavaPelaajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seuraavaPelaajaActionPerformed
         if (!this.peli.jatkuukoPeli()) {
             pelinLopetus();
@@ -727,7 +771,9 @@ public class PeliIkkuna extends javax.swing.JFrame {
     private javax.swing.JButton yatzy;
     private javax.swing.JButton ykkoset;
     // End of variables declaration//GEN-END:variables
-
+    /**
+     * Avaa loppuikkunan ja sulkee peli-ikkunan.
+     */
     private void pelinLopetus() {
         new Loppuikkuna(this.peli);
         
