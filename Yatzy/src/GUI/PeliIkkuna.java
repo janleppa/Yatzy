@@ -729,6 +729,9 @@ public class PeliIkkuna extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void pelinLopetus() {
-        throw new UnsupportedOperationException("Not yet implemented");
+        new Loppuikkuna(this.peli);
+        
+        setVisible(false);
+        dispose();
     }
 }

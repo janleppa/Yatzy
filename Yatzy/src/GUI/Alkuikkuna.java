@@ -14,7 +14,9 @@ import yatzy.Pelaaja;
  * @author janne_000
  */
 public class Alkuikkuna extends javax.swing.JFrame {
-
+    /**
+     * Alkuikkunan nimikentät listaksi koottuna.
+     */
     private ArrayList<JTextField> kentat;
 
     /**
@@ -166,11 +168,15 @@ public class Alkuikkuna extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Aloittaa pelin, jos kentistä löytyy vähintään nimeä.
+     * @param evt 
+     */
     private void pelaaNappiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pelaaNappiActionPerformed
         ArrayList<Pelaaja> pelaajat = new ArrayList<Pelaaja>();
 
         for (JTextField kentta : this.kentat) {
-            if (kentta.getText().equals(null) || !kentta.getText().isEmpty()) {
+            if (!kentta.getText().isEmpty() && kentta.getText().length()< 13) {
                 pelaajat.add(new Pelaaja(kentta.getText()));
             }
         }

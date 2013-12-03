@@ -61,7 +61,7 @@ public class Kayttis {
     public ArrayList<Pelaaja> kysyPelaajat() {
         ArrayList<Pelaaja> pelaajat = new ArrayList<Pelaaja>();
 
-        System.out.println("Peliin mahtuu 2-5 pelaajaa. Syötä pelaajien nimet yksi kerrallaan. Tyhjä merkkijono aloittaa pelin.");
+        System.out.println("Peliin mahtuu 2-5 pelaajaa. Syötä pelaajien nimet yksi kerrallaan, ilman ääkkösiä. Tyhjä merkkijono aloittaa pelin.");
 
         while (true) {
             System.out.print("Pelaajan nimi: ");
@@ -193,7 +193,7 @@ public class Kayttis {
                 if (luku == 0) {
                     System.out.println("Nopat valittu.");
                     break;
-                } else if (luku < 1 || luku > 6) {
+                } else if (luku < 1 || luku > 5) {
                     System.out.println("Syötä luku väliltä 1-5!");
                 } else {
                     if (kasi.getNoppaNroN(luku).onkoValittu()) {
