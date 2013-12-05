@@ -1,13 +1,18 @@
 30.10.		2h		GitHubin käyttöön totuttelu
 31.10.		1h		Aihe päätetty ja aihemäärittelyn raaka versio tehty
-1.11.		2h		Ekoja luokkia
-5.11.		2h		Luokkia päivitelty ja testiluokkia luotu
-6.11.		4h		Testiluokkia ja erityisesti kädentarkastaja luokkaan tehty lisää metodeja
-8.11.		3h		Javadocin kirjoitus aloitettu, testejä, pistelaskuri luokka.
+01.11.		2h		Ekoja luokkia
+05.11.		2h		Luokkia päivitelty ja testiluokkia luotu
+06.11.		4h		Testiluokkia ja erityisesti kädentarkastaja luokkaan tehty lisää metodeja
+08.11.		3h		Javadocin kirjoitus aloitettu, testejä, pistelaskuri luokka.
 10.11.		2h		Javadocia ja testejä.
 11.11.		3h		Pistetaulukko-luokan ohjemointia ja testejä
 14.11.		2h		Luokkakaavio ja ohjelmointia
 15.11.		2h		Tekstikäyttöliittymän tekemistä
 17.11.		3h		Tekstikäyttiksen ohjelmointia
-
-		
+21.11.		2h		Javadoc, koodailua, sekvenssikaaviot
+22.11.		1h		Tekstikäyttistä
+25.11.		2h		Graafista käyttistä
+26.11.		2h		GUI
+28.11.		2h		GUI ja sekvenssikaavio
+03.12		1h		GUI paranteluu ja javadocia.
+				
