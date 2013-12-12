@@ -94,8 +94,12 @@ public class KadentarkastajaTest {
     public void testaaOnkoKadessaKolmoset() {
         Noppakasi on1 = new Noppakasi(1, 4, 1, 4, 1);
         Noppakasi ei1 = new Noppakasi(1, 2, 1, 2, 6);
+        Noppakasi on2 = new Noppakasi(6, 6, 6, 2, 2); 
 
         this.tar.setKasi(on1);
+        assertTrue(this.tar.onkoKadessaKolmoset());
+        
+        this.tar.setKasi(on2);
         assertTrue(this.tar.onkoKadessaKolmoset());
 
         this.tar.setKasi(ei1);

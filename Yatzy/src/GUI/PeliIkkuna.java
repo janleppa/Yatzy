@@ -53,13 +53,13 @@ public class PeliIkkuna extends javax.swing.JFrame {
     }
     /**
      * Kertoo mitä jokaisen pelaajan vuorolla tapahtuu. Metodille annetaan parametrina pelaaja-olio,
-     * jonka vuoroa aletaan pelaamaan. Heitot asetetaan nollaksi, pelaajalle heitetään aloitukäsi ja 
+     * jonka vuoroa aletaan pelaamaan. Heitot asetetaan ykköseksi, pelaajalle heitetään aloitukäsi ja 
      * muuttujan <code>onkoPisteetAsetettu</code> arvoksi vaihdetaan <code>false</code>.
      * @param pelaaja 
      */
     public void pelaa(Pelaaja pelaaja) {
         this.pelaaja = pelaaja;
-        this.pelaajanNimi.setText("Pelaajan " + this.pelaaja.getNimi() + " vuoro.");
+        this.pelaajanNimi.setText("Pelaajan " + this.pelaaja.getNimi() + " vuoro");
         this.onkoPisteetAsetettu = false;
 
         this.peli.getNoppakasi().heitaValitsemattomat();
@@ -67,6 +67,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
 
         this.heitot = 1;
         this.pistetaulukko.setText(this.pelaaja.getTaulukko().toStringGraafiselle());
+        this.paivitaMonesHeitto();
 
 
     }
@@ -119,6 +120,14 @@ public class PeliIkkuna extends javax.swing.JFrame {
             return 0;
         }
         return seuraava;
+    }
+    
+    /**
+     * Päivittää tekstikentän, joka kertoo monesko heitto on menossa.
+     */
+    
+    private void paivitaMonesHeitto() {
+        this.monesHeitto.setText(this.heitot + ". heitto");
     }
     
     /**
@@ -175,6 +184,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         pistetaulukko = new javax.swing.JTextArea();
         seuraavaPelaaja = new javax.swing.JButton();
+        monesHeitto = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Yatzy");
@@ -414,7 +424,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(seuraavaPelaaja)
                                 .addComponent(heitaNopat))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(noppa4)
@@ -432,15 +442,22 @@ public class PeliIkkuna extends javax.swing.JFrame {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(nopanValinta3)
                                         .addComponent(nopanValinta2)
-                                        .addComponent(nopanValinta1)))))
+                                        .addComponent(nopanValinta1)))
+                                .addComponent(monesHeitto)))
                         .addGap(25, 25, 25))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(pelaajanNimi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(pelaajanNimi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(monesHeitto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -576,7 +593,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
             this.peli.getNoppakasi().heitaValitsemattomat();
             heitot++;
             paivitaNopat();
-
+            this.paivitaMonesHeitto();
 
         }
     }//GEN-LAST:event_heitaNopatActionPerformed
@@ -747,6 +764,7 @@ public class PeliIkkuna extends javax.swing.JFrame {
     private javax.swing.JButton kolmeSamaa;
     private javax.swing.JButton kolmoset;
     private javax.swing.JButton kutoset;
+    private javax.swing.JTextField monesHeitto;
     private javax.swing.JButton neljaSamaa;
     private javax.swing.JButton neloset;
     private javax.swing.JCheckBox nopanValinta1;

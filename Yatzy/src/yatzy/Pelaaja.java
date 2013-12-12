@@ -50,10 +50,20 @@ public class Pelaaja implements Comparable<Pelaaja> {
         this.pisteet = taulukko;
     }
 
+    /**
+     * Mahdollistaa pelaajien vertaulun loppupisteiden perusteella.
+     * @param pelaaja
+     * @return Kokonaisluku, jonka avulla nopat laitetaan järjestykseen.
+     */
     @Override
     public int compareTo(Pelaaja pelaaja) {
         return  pelaaja.Kerropisteet()-this.Kerropisteet(); 
     }
+    
+    /**
+     * Palauttaa pelaajan loppupisteet
+     * @return loppupisteet. 
+     */
     
     public int Kerropisteet() {
         return this.pisteet.KerroLoppuPisteet();
