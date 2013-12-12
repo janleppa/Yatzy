@@ -340,6 +340,12 @@ public class Pistetaulukko {
         }
     }
     
+    /**
+     * Hieman erilainen pistetaulukon merkkijonoesitys graafista käyttistä varten.
+     * Kohtien väliin luodaan aina tyhjä rivi.
+     * @return Pistetaulukon merkkijonoesitys
+     */
+    
      public String toStringGraafiselle() {
         String taulukko = "";
 
