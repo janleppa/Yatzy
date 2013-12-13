@@ -14,5 +14,6 @@
 25.11.		2h		Graafista k‰yttist‰
 26.11.		2h		GUI
 28.11.		2h		GUI ja sekvenssikaavio
-03.12		1h		GUI paranteluu ja javadocia.
-12.12		2h		Dokumentaatiota ja pient‰ viilailua sielt‰ t‰‰lt‰.				
+03.12.		1h		GUI paranteluu ja javadocia.
+12.12.		2h		Dokumentaatiota ja pient‰ viilailua sielt‰ t‰‰lt‰.
+13.12.		1h		Dokumentaatiota ja korjailuja sielt‰ t‰‰lt‰.				
